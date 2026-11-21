@@ -391,7 +391,7 @@ if(res.ok){const d=await res.json();const p=d?.data?.attributes?.base_token_pric
   function writeBase(v){const payload=JSON.stringify({value:v,hash:genHash(v)});[KEYS.base,KEYS.backup1,KEYS.backup2].forEach(k=>{try{localStorage.setItem(k,payload);}catch(e){}});}
   let base=readBase();
   if(!sessionStorage.getItem(KEYS.session)){base=base+1;writeBase(base);sessionStorage.setItem(KEYS.session,'1');}
-  function update(){const now=Date.now();if(now>=END_MS){document.querySelectorAll('.counter-visitors').forEach(el=>el.textContent=base.toLocaleString());return;}const elapsedSec=Math.floor((now-START_MS)/1000);const live=base+Math.floor(elapsedSec/360);document.querySelectorAll('.counter-visitors').forEach(el=>el.textContent=live.toLocaleString());}
+  function update(){const now=Date.now();if(now>=END_MS){document.querySelectorAll('.counter-visitors').forEach(el=>el.textContent=base.toLocaleString());return;}const elapsedSec=Math.floor((now-START_MS)/1000);const live=base+Math.floor(elapsedSec/6);document.querySelectorAll('.counter-visitors').forEach(el=>el.textContent=live.toLocaleString());}
   update();setInterval(update,1000);
 })();
 
