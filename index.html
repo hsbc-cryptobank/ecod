@@ -39,7 +39,7 @@ nav a.active{color:var(--green);border-bottom:2px solid var(--green)}
 .theme-toggle:hover{border-color:var(--green);transform:scale(1.1)}
 
 .ticker-bar{position:fixed;top:60px;left:0;width:100%;background:var(--glass);border-bottom:1px solid var(--border);z-index:99;overflow:hidden;height:32px;display:flex;align-items:center}
-.ticker-track{display:flex;gap:40px;white-space:nowrap;animation:tickerScroll 40s linear infinite;font-size:12px;color:var(--muted)}
+.ticker-track{display:flex;gap:40px;white-space:nowrap;animation:tickerScroll 60s linear infinite;font-size:12px;color:var(--muted)}
 .ticker-track span{display:inline-flex;align-items:center;gap:6px}
 .ticker-track .up{color:var(--green)}
 .ticker-track .down{color:#FF5555}
@@ -335,24 +335,65 @@ themeToggle.addEventListener('click', () => {
 // COPY
 function copyText(text){navigator.clipboard.writeText(text).then(()=>{alert('Copied: '+text)}).catch(()=>{prompt('Copy:',text)})}
 
-// TOP TICKER
-const topItems = [
-  '€ECOD $0.01', 'Contract: BPu5...UP9z', 'Solana Token-2022',
-  'Ecosystem: 70+ tokens', 'Fintech RWA layer', 'RWA: Carbon Credits',
-  'Uniswap Live', 'Binance Web3 Live', 'GeckoTerminal Live',
-  'Total Supply: 8.89Q', 'Transfer Hook Ready', 'Metadata Pointer'
+// ===== ECOSYSTEM TOKENS (40+) — TOP TICKER =====
+// Замените тикеры/названия на реальные из вашей экономики системы
+const ecosystemTokens = [
+  {name:'ECODUNE', ticker:'€ECOD'},
+  {name:'ECO Impact', ticker:'€ECO'},
+  {name:'ECO Impact 3', ticker:'€ECO3'},
+  {name:'ECO Impact 4', ticker:'€ECO4'},
+  {name:'ECO Impact 5', ticker:'€ECO5'},
+  {name:'ECO Impact 6', ticker:'€ECO6'},
+  {name:'ECO Impact 7', ticker:'€ECO7'},
+  {name:'ECO Impact 8', ticker:'€ECO8'},
+  {name:'ECO Impact 9', ticker:'€ECO9'},
+  {name:'ECO Impact 10', ticker:'€ECO10'},
+  {name:'ECO Impact 11', ticker:'€ECO11'},
+  {name:'ECO Impact 12', ticker:'€ECO12'},
+  {name:'ECO Impact 13', ticker:'€ECO13'},
+  {name:'ECO Impact 14', ticker:'€ECO14'},
+  {name:'ECO Impact 15', ticker:'€ECO15'},
+  {name:'ECO Impact 16', ticker:'€ECO16'},
+  {name:'ECO Impact 17', ticker:'€ECO17'},
+  {name:'ECO Impact 18', ticker:'€ECO18'},
+  {name:'ECO Impact 19', ticker:'€ECO19'},
+  {name:'ECO Impact 20', ticker:'€ECO20'},
+  {name:'ECO Impact 21', ticker:'€ECO21'},
+  {name:'ECO Impact 22', ticker:'€ECO22'},
+  {name:'ECO Impact 23', ticker:'€ECO23'},
+  {name:'ECO Impact 24', ticker:'€ECO24'},
+  {name:'ECO Impact 25', ticker:'€ECO25'},
+  {name:'ECO Impact 26', ticker:'€ECO26'},
+  {name:'ECO Impact 27', ticker:'€ECO27'},
+  {name:'ECO Impact 28', ticker:'€ECO28'},
+  {name:'ECO Impact 29', ticker:'€ECO29'},
+  {name:'ECO Impact 30', ticker:'€ECO30'},
+  {name:'ECO Impact 31', ticker:'€ECO31'},
+  {name:'ECO Impact 32', ticker:'€ECO32'},
+  {name:'ECO Impact 33', ticker:'€ECO33'},
+  {name:'ECO Impact 34', ticker:'€ECO34'},
+  {name:'ECO Impact 35', ticker:'€ECO35'},
+  {name:'ECO Impact 36', ticker:'€ECO36'},
+  {name:'ECO Impact 37', ticker:'€ECO37'},
+  {name:'ECO Impact 38', ticker:'€ECO38'},
+  {name:'ECO Impact 39', ticker:'€ECO39'},
+  {name:'ECO Impact 40', ticker:'€ECO40'}
 ];
-document.getElementById('topTicker').innerHTML = topItems.concat(topItems).map((t,i) => {
-  const cls = i % 4 === 0 ? 'up' : i % 4 === 2 ? 'down' : '';
-  return `<span class="${cls}">● ${t}</span>`;
-}).join('');
 
-// BOTTOM TICKER
+const topTrack = document.getElementById('topTicker');
+const topHTML = ecosystemTokens.map((t,i) => {
+  const cls = i % 3 === 0 ? 'up' : i % 3 === 1 ? 'down' : '';
+  return `<span class="${cls}">● ${t.name} ${t.ticker}</span>`;
+}).join('');
+// дублируем для бесшовной прокрутки
+topTrack.innerHTML = topHTML + topHTML;
+
+// BOTTOM TICKER — сервисы/площадки
 const bottomItems = [
   'Jupiter', 'Raydium', 'Orca', 'Meteora', 'Drift', 'Kamino', 'Marginfi',
   'Solend', 'Phantom', 'Solflare', 'Backpack', 'Wormhole', 'LayerZero',
   'Realms', 'Rugcheck', 'Helius', 'QuickNode', 'Birdeye', 'Magic Eden',
-  'Tensor', 'ECO Impact', 'ECODUNE', 'Cross-Token Swap', 'Unified Liquidity'
+  'Tensor', 'Cross-Token Swap', 'Unified Liquidity'
 ];
 document.getElementById('bottomTicker').innerHTML = bottomItems.concat(bottomItems).map(t => `<span><span class="tag">◆</span> ${t}</span>`).join('');
 
@@ -370,7 +411,7 @@ const fintechModules = [
 'Realms Governance','SPL Governance','Token Voting','Proposal Tracker','Treasury Dashboard','Multisig Proposal','Community Poll','Delegate Registry','Snapshot','Quadratic Voting',
 'Anchor Framework','Solana Web3.js','Token-2022 SDK','Metaplex SDK','Jupiter SDK','Helius SDK','QuickNode SDK','Alchemy SDK','Solana CLI','Anchor CLI',
 'Rugcheck Scanner','Token Sniffer','Honeypot Check','Mint Authority Check','Freeze Authority Check','LP Lock Check','Audit Report','Bug Bounty','Multi-sig Required','Timelock',
-'ECO Impact (€ECO)','ECODUNE (€ECOD)','Ecosystem Token #3','Ecosystem Token #4','Ecosystem Token #5','Cross-Token Swap','Ecosystem Dashboard','Token Bridge','Unified Liquidity','Shared Staking'
+'ECO Impact (€ECO)','ECODUNE (€ECOD)','Cross-Token Swap','Ecosystem Dashboard','Token Bridge','Unified Liquidity','Shared Staking'
 ];
 
 function renderFintechGrid(){
