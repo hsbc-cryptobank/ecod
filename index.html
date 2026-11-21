@@ -7,106 +7,100 @@
 <link rel="icon" href="ecodune_logo.png">
 <meta property="og:image" content="ecodune_banner.png">
 <style>
-:root{--bg:#040906;--text:#E0F0E6;--green:#2ECC40;--dark:#1B8A2A;--gold:#FFD700;--teal:#0F4C5C;--sand:#D4A373;--glass:rgba(10,25,15,0.6);--border:rgba(46,204,64,0.25);--header-bg:rgba(4,9,6,0.9);--muted:#8A94C8;--card-text:#C0C8F0}
-[data-theme="light"]{--bg:#F5F7F2;--text:#1A2A1E;--green:#1B8A2A;--dark:#2ECC40;--gold:#B8860B;--teal:#0F4C5C;--sand:#C49A6C;--glass:rgba(255,255,255,0.7);--border:rgba(27,138,42,0.25);--header-bg:rgba(245,247,242,0.9);--muted:#5A6A5E;--card-text:#2A3A2E}
+:root{--bg:#040906;--text:#E0F0E6;--green:#2ECC40;--dark:#1B8A2A;--gold:#FFD700;--glass:rgba(10,25,15,0.6);--border:rgba(46,204,64,0.25);--header-bg:rgba(4,9,6,0.95);--muted:#8A94C8;--card-text:#C0C8F0}
+[data-theme="light"]{--bg:#F5F7F2;--text:#1A2A1E;--green:#1B8A2A;--dark:#2ECC40;--gold:#B8860B;--glass:rgba(255,255,255,0.7);--border:rgba(27,138,42,0.25);--header-bg:rgba(245,247,242,0.95);--muted:#5A6A5E;--card-text:#2A3A2E}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding-top:140px;padding-bottom:60px;transition:background .4s,color .4s}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding-top:130px;padding-bottom:60px;transition:background .4s,color .4s}
 body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at 50% 50%,rgba(46,204,64,0.05) 0%,transparent 60%);z-index:-1;pointer-events:none}
 .container{max-width:1200px;margin:0 auto;padding:0 20px}
-header{position:fixed;top:0;left:0;width:100%;background:var(--header-bg);backdrop-filter:blur(12px);z-index:100;border-bottom:1px solid var(--border);padding:12px 0}
-.header-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;max-width:1200px;margin:0 auto;padding:0 20px}
-.logo{display:flex;align-items:center;gap:8px}
-.logo img{height:36px;width:auto;border-radius:50%}
-.logo-text{font-size:20px;font-weight:700;color:var(--text)}
-nav{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-nav a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:500;transition:.3s}
-nav a:hover{color:var(--green)}
-nav a.active{color:var(--green);border-bottom:2px solid var(--green)}
-.btn-primary{background:linear-gradient(135deg,var(--green),var(--dark));color:#040906;padding:8px 20px;border-radius:30px;font-weight:700;text-decoration:none;transition:.3s;border:none;cursor:pointer;display:inline-block}
-[data-theme="light"] .btn-primary{color:#fff}
-.btn-primary:hover{transform:scale(1.02);box-shadow:0 0 20px rgba(46,204,64,0.4)}
-.theme-toggle{background:var(--glass);border:1px solid var(--border);color:var(--text);border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:16px;transition:.3s}
-.theme-toggle:hover{border-color:var(--green);transform:scale(1.1)}
 
-/* --- TOP TICKER (TOKENS WITH PRICE/VOLUME) --- */
-.ticker-bar{position:fixed;top:60px;left:0;width:100%;background:var(--glass);border-bottom:1px solid var(--border);z-index:99;overflow:hidden;height:44px;display:flex;align-items:center}
-.ticker-track{display:flex;gap:30px;white-space:nowrap;animation:tickerScroll 90s linear infinite;font-size:12px;color:var(--muted);padding-left:20px}
-.ticker-item{display:inline-flex;align-items:center;gap:8px;background:rgba(0,0,0,0.3);border:1px solid var(--border);padding:4px 10px;border-radius:20px}
-.ticker-item .tk{color:var(--gold);font-weight:700;font-size:13px}
-.ticker-item .nm{color:var(--text);font-size:11px}
-.ticker-item .pr{color:var(--green);font-weight:600;font-size:12px}
-.ticker-item .vl{color:var(--muted);font-size:10px}
+/* HEADER */
+header{position:fixed;top:0;left:0;width:100%;background:var(--header-bg);backdrop-filter:blur(12px);z-index:100;border-bottom:1px solid var(--border);padding:8px 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;max-width:1200px;margin:0 auto;padding:0 15px}
+.logo{display:flex;align-items:center;gap:8px}
+.logo img{height:30px;width:auto;border-radius:50%}
+.logo-text{font-size:18px;font-weight:700;color:var(--text)}
+nav{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+nav a{color:var(--muted);text-decoration:none;font-size:12px;font-weight:500;transition:.3s}
+nav a:hover{color:var(--green)}
+.btn-primary{background:linear-gradient(135deg,var(--green),var(--dark));color:#040906;padding:6px 16px;border-radius:30px;font-weight:700;text-decoration:none;transition:.3s;border:none;cursor:pointer;display:inline-block;font-size:12px}
+[data-theme="light"] .btn-primary{color:#fff}
+.theme-toggle{background:var(--glass);border:1px solid var(--border);color:var(--text);border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:14px;transition:.3s}
+
+/* TICKERS (ВЕРХНЯЯ И НИЖНЯЯ) */
+.ticker-bar{position:fixed;top:52px;left:0;width:100%;background:var(--bg);border-bottom:1px solid var(--border);z-index:99;overflow:hidden;height:38px;display:flex;align-items:center;box-shadow:0 4px 10px rgba(0,0,0,0.5)}
+.ticker-track{display:flex;gap:15px;white-space:nowrap;animation:tickerScroll 90s linear infinite;padding-left:15px}
+.ticker-item{display:inline-flex;align-items:center;gap:6px;background:var(--glass);border:1px solid var(--border);padding:2px 8px;border-radius:12px;font-size:11px}
+.ticker-item .tk{color:var(--gold);font-weight:700;font-size:12px}
+.ticker-item .nm{color:var(--text);font-size:10px;opacity:0.8}
+.ticker-item .pr{color:var(--green);font-weight:600;font-size:11px}
+.ticker-item .vl{color:var(--muted);font-size:9px}
 @keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-.hero{position:relative;min-height:440px;display:flex;align-items:center;justify-content:center;text-align:center;border-radius:24px;overflow:hidden;margin:20px 0 40px;background:url('ecodune_hero.png') center/cover no-repeat;border:1px solid var(--border)}
+.bottom-ticker{position:relative;overflow:hidden;height:38px;display:flex;align-items:center;background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:40px 0 0;box-shadow:0 -4px 10px rgba(0,0,0,0.5)}
+.bottom-track{display:flex;gap:15px;white-space:nowrap;animation:tickerScroll 90s linear infinite reverse;padding-left:15px}
+.bottom-track .ticker-item{background:rgba(46,204,64,0.05)}
+
+/* HERO */
+.hero{position:relative;min-height:400px;display:flex;align-items:center;justify-content:center;text-align:center;border-radius:24px;overflow:hidden;margin:10px 0 30px;background:url('ecodune_hero.png') center/cover no-repeat;border:1px solid var(--border)}
 .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,9,6,0.4) 0%,rgba(4,9,6,0.85) 100%)}
 [data-theme="light"] .hero::before{background:linear-gradient(180deg,rgba(245,247,242,0.3) 0%,rgba(245,247,242,0.85) 100%)}
 .hero-content{position:relative;z-index:2;padding:40px 20px}
-.hero h1{font-size:52px;font-weight:800;color:#fff;margin-bottom:12px}
+.hero h1{font-size:42px;font-weight:800;color:#fff;margin-bottom:12px}
 [data-theme="light"] .hero h1{color:var(--text)}
 .hero h1 .highlight{color:var(--green)}
-.hero p{color:#C0C8F0;font-size:18px;max-width:700px;margin:0 auto 24px}
+.hero p{color:#C0C8F0;font-size:16px;max-width:700px;margin:0 auto 24px}
 [data-theme="light"] .hero p{color:var(--card-text)}
-.hero-badge{display:inline-block;background:rgba(46,204,64,0.15);border:1px solid var(--border);padding:6px 16px;border-radius:20px;font-size:13px;color:var(--green);font-weight:600;margin-bottom:16px}
+.hero-badge{display:inline-block;background:rgba(46,204,64,0.15);border:1px solid var(--border);padding:6px 16px;border-radius:20px;font-size:12px;color:var(--green);font-weight:600;margin-bottom:16px}
 .floaters{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
-.floater{position:absolute;font-size:28px;opacity:.22;animation:floatUp 12s ease-in-out infinite;filter:drop-shadow(0 0 8px rgba(255,215,0,0.3))}
+.floater{position:absolute;font-size:24px;opacity:.25;animation:floatUp 12s ease-in-out infinite;filter:drop-shadow(0 0 8px rgba(255,215,0,0.3))}
 .floater:nth-child(1){left:8%;top:20%;animation-delay:0s}
-.floater:nth-child(2){left:20%;top:70%;animation-delay:2s;font-size:22px}
-.floater:nth-child(3){left:75%;top:15%;animation-delay:1s;font-size:32px}
+.floater:nth-child(2){left:20%;top:70%;animation-delay:2s;font-size:20px}
+.floater:nth-child(3){left:75%;top:15%;animation-delay:1s;font-size:28px}
 .floater:nth-child(4){left:88%;top:60%;animation-delay:3s}
-.floater:nth-child(5){left:45%;top:80%;animation-delay:4s;font-size:20px}
-.floater:nth-child(6){left:60%;top:25%;animation-delay:5s;font-size:24px}
-.floater:nth-child(7){left:35%;top:10%;animation-delay:2.5s;font-size:26px}
-.floater:nth-child(8){left:12%;top:45%;animation-delay:1.5s;font-size:18px}
+.floater:nth-child(5){left:45%;top:80%;animation-delay:4s;font-size:18px}
+.floater:nth-child(6){left:60%;top:25%;animation-delay:5s;font-size:22px}
+.floater:nth-child(7){left:35%;top:10%;animation-delay:2.5s;font-size:24px}
+.floater:nth-child(8){left:12%;top:45%;animation-delay:1.5s;font-size:16px}
 @keyframes floatUp{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-30px) rotate(15deg)}}
-section{padding:40px 0;position:relative}
-.section-header{text-align:center;margin-bottom:40px}
-.section-header h1{font-size:38px;font-weight:800;margin-bottom:12px;color:var(--text)}
+
+/* ОСТАЛЬНОЕ */
+section{padding:30px 0;position:relative}
+.section-header{text-align:center;margin-bottom:30px}
+.section-header h1{font-size:32px;font-weight:800;margin-bottom:12px;color:var(--text)}
 .section-header h1 .highlight{color:var(--green)}
-.section-header p{color:var(--muted);max-width:700px;margin:0 auto}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-bottom:30px}
-.card{background:var(--glass);border:1px solid var(--border);border-radius:20px;padding:24px;transition:.3s;backdrop-filter:blur(15px)}
-.card:hover{border-color:var(--green);transform:translateY(-4px);box-shadow:0 10px 30px rgba(46,204,64,0.1)}
-.card h3{color:var(--text);margin-bottom:10px;font-size:18px}
-.card p{color:var(--card-text);font-size:14px;margin-bottom:12px}
-.card .stat{font-size:28px;font-weight:700;color:var(--green)}
-.card .label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.section-header p{color:var(--muted);max-width:700px;margin:0 auto;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:15px;margin-bottom:20px}
+.card{background:var(--glass);border:1px solid var(--border);border-radius:16px;padding:20px;transition:.3s}
+.card:hover{border-color:var(--green);transform:translateY(-4px)}
+.card h3{color:var(--text);margin-bottom:8px;font-size:16px}
+.card p{color:var(--card-text);font-size:13px;margin-bottom:12px}
 .card a{color:var(--green);text-decoration:none;font-size:13px;font-weight:600}
-.card a:hover{text-decoration:underline}
-.widget-box{background:rgba(0,0,0,0.4);border:1px solid var(--border);border-radius:16px;padding:20px;margin:20px 0}
+.widget-box{background:rgba(0,0,0,0.4);border:1px solid var(--border);border-radius:16px;padding:15px;margin:20px 0}
 [data-theme="light"] .widget-box{background:rgba(255,255,255,0.6)}
 .widget-box iframe{width:100%;border:none;border-radius:12px;display:block}
-.address-box{background:rgba(0,0,0,0.4);border:1px solid var(--border);border-radius:16px;padding:20px;margin:16px 0;text-align:center;font-size:14px;color:var(--card-text);font-family:'Courier New',monospace}
+.address-box{background:rgba(0,0,0,0.4);border:1px solid var(--border);border-radius:12px;padding:15px;margin:16px 0;text-align:center;font-size:13px;color:var(--card-text);font-family:'Courier New',monospace;word-break:break-all}
 [data-theme="light"] .address-box{background:rgba(255,255,255,0.6)}
 .address-box .label{color:var(--green);font-weight:600;display:block;margin-bottom:8px;font-family:'Segoe UI',sans-serif}
-.address-box .addr{color:var(--gold);font-weight:bold;word-break:break-all}
-.address-box .copy-btn{background:transparent;border:none;color:var(--green);cursor:pointer;font-size:16px;margin-left:8px;transition:.2s}
-.address-box .copy-btn:hover{color:var(--text);transform:scale(1.1)}
-.address-box .link{color:var(--green);text-decoration:none;font-size:14px;margin-left:12px;font-family:'Segoe UI',sans-serif}
-.address-box .link:hover{text-decoration:underline}
-.counter-box{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin:20px 0;animation:pulseGlow 3s ease-in-out infinite}
-@keyframes pulseGlow{0%,100%{filter:drop-shadow(0 0 0 rgba(46,204,64,0))}50%{filter:drop-shadow(0 0 15px rgba(46,204,64,0.4))}}
-.counter-item{text-align:center;padding:16px 24px;background:var(--glass);border:1px solid var(--border);border-radius:16px;min-width:140px}
-.counter-item .num{font-size:32px;font-weight:800;color:var(--green)}
-.counter-item .lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
-.media-block{display:flex;align-items:center;gap:30px;background:var(--glass);border:1px solid var(--border);border-radius:24px;padding:30px;margin:20px 0;flex-wrap:wrap}
-.media-block img{width:180px;height:180px;object-fit:contain;border-radius:16px;flex-shrink:0}
-.media-block .text{flex:1;min-width:240px}
-.media-block h3{color:var(--text);margin-bottom:10px}
-.media-block p{color:var(--card-text);font-size:14px}
-.fintech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin:20px 0}
-.fintech-item{background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;font-size:13px;color:var(--card-text);transition:.3s;cursor:pointer}
+.address-box .addr{color:var(--gold);font-weight:bold}
+.copy-btn{background:transparent;border:none;color:var(--green);cursor:pointer;font-size:14px;margin-left:8px}
+.counter-box{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;margin:20px 0}
+.counter-item{text-align:center;padding:12px 20px;background:var(--glass);border:1px solid var(--border);border-radius:12px;min-width:120px}
+.counter-item .num{font-size:28px;font-weight:800;color:var(--green)}
+.counter-item .lbl{font-size:10px;color:var(--muted);text-transform:uppercase}
+.media-block{display:flex;align-items:center;gap:20px;background:var(--glass);border:1px solid var(--border);border-radius:16px;padding:20px;margin:20px 0;flex-wrap:wrap}
+.media-block img{width:150px;height:150px;object-fit:contain;border-radius:12px;flex-shrink:0}
+.media-block .text{flex:1;min-width:200px}
+.media-block h3{color:var(--text);margin-bottom:8px;font-size:16px}
+.media-block p{color:var(--card-text);font-size:13px}
+.fintech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin:20px 0}
+.fintech-item{background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:10px;padding:10px;text-align:center;font-size:12px;color:var(--card-text);transition:.3s;cursor:pointer}
 [data-theme="light"] .fintech-item{background:rgba(255,255,255,0.6)}
 .fintech-item:hover{border-color:var(--green);background:rgba(46,204,64,0.05);color:var(--text)}
-.fintech-item .icon{font-size:20px;display:block;margin-bottom:6px}
-.bottom-ticker{position:relative;overflow:hidden;height:40px;display:flex;align-items:center;background:var(--glass);border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:40px 0 0;border-radius:12px}
-.bottom-track{display:flex;gap:30px;white-space:nowrap;animation:tickerScroll 50s linear infinite;font-size:13px;color:var(--muted);padding-left:20px}
-.bottom-track span{display:inline-flex;align-items:center;gap:6px}
-.bottom-track .tag{color:var(--green);font-weight:600}
+.fintech-item .icon{font-size:18px;display:block;margin-bottom:4px}
 .back-link{display:inline-block;margin-top:20px;color:var(--green);text-decoration:none;font-weight:600}
-.back-link:hover{text-decoration:underline}
-footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:13px;border-top:1px solid var(--border);margin-top:40px}
-@media(max-width:768px){.header-inner{flex-direction:column;align-items:stretch}nav{justify-content:center;gap:8px}nav a{font-size:11px}.hero h1{font-size:32px}.section-header h1{font-size:26px}.media-block{flex-direction:column;text-align:center}}
+footer{text-align:center;padding:20px;color:var(--muted);font-size:12px;border-top:1px solid var(--border);margin-top:30px}
+@media(max-width:768px){header{padding:6px 0}nav{display:none}.ticker-bar{top:46px}}
 </style>
 </head>
 <body>
@@ -130,6 +124,7 @@ footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:13px;bor
 </div>
 </header>
 
+<!-- ВЕРХНЯЯ СТРОКА (ТОКЕНЫ) -->
 <div class="ticker-bar">
 <div class="ticker-track" id="topTicker"></div>
 </div>
@@ -139,19 +134,13 @@ footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:13px;bor
 <section id="home">
 <div class="hero">
 <div class="floaters">
-<span class="floater">🪙</span>
-<span class="floater">💰</span>
-<span class="floater">💵</span>
-<span class="floater">🏦</span>
-<span class="floater">💎</span>
-<span class="floater">🥇</span>
-<span class="floater">💶</span>
-<span class="floater">📈</span>
+<span class="floater">🪙</span><span class="floater">💰</span><span class="floater">💵</span><span class="floater">🏦</span>
+<span class="floater">💎</span><span class="floater">🥇</span><span class="floater">💶</span><span class="floater">📈</span>
 </div>
 <div class="hero-content">
 <div class="hero-badge">Solana Token-2022 · Fintech RWA</div>
 <h1>ECODUNE <span class="highlight">€ECOD</span></h1>
-<p>Fintech RWA token for tokenizing ecological real-world assets. Part of a 40+ token ecosystem. Integrated with real DeFi infrastructure.</p>
+<p>Fintech RWA token for tokenizing ecological real-world assets. Part of a 40+ token ecosystem.</p>
 <a href="https://app.uniswap.org/explore/tokens/solana/BPu5sM2LhYMRRPWajyWesDME8bt6ARpGHWm6Spm6UP9z" target="_blank" class="btn-primary">Trade on Uniswap →</a>
 </div>
 </div>
@@ -159,8 +148,8 @@ footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:13px;bor
 <div class="counter-box">
 <div class="counter-item"><div class="num counter-visitors">0</div><div class="lbl">Visitors (Live)</div></div>
 <div class="counter-item"><div class="num" id="counterPrice">$0.01</div><div class="lbl">Price (Live)</div></div>
-<div class="counter-item"><div class="num">40+</div><div class="lbl">Ecosystem Tokens</div></div>
-<div class="counter-item"><div class="num">8.89Q</div><div class="lbl">Total Supply</div></div>
+<div class="counter-item"><div class="num">40+</div><div class="lbl">Ecosystem</div></div>
+<div class="counter-item"><div class="num">8.89Q</div><div class="lbl">Supply</div></div>
 </div>
 </section>
 
@@ -184,10 +173,10 @@ footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:13px;bor
 </div>
 
 <div class="grid">
-<div class="card"><h3>Uniswap</h3><p>Explore token on Uniswap</p><a href="https://app.uniswap.org/explore/tokens/solana/BPu5sM2LhYMRRPWajyWesDME8bt6ARpGHWm6Spm6UP9z" target="_blank">Open Uniswap →</a></div>
-<div class="card"><h3>Binance Web3</h3><p>Token details on Binance</p><a href="https://app.binance.com/uni-qr/web3-token-details?utm_medium=share&tokenCA=BPu5sM2LhYMRRPWajyWesDME8bt6ARpGHWm6Spm6UP9z&binanceChainId=CT_501&chain=sol" target="_blank">Open Binance →</a></div>
-<div class="card"><h3>OpenSea</h3><p>View token on OpenSea</p><a href="https://opensea.io/token/solana/BPu5sM2LhYMRRPWajyWesDME8bt6ARpGHWm6Spm6UP9z" target="_blank">Open OpenSea →</a></div>
-<div class="card"><h3>GeckoTerminal</h3><p>Live pool data</p><a href="https://www.geckoterminal.com/solana/pools/2onQGAoorxkMavNsmKXMcWLgyuK1A7VxAf6UeZ4sg6zW" target="_blank">Open GeckoTerminal →</a></div>
+<div class="card"><h3>Uniswap</h3><p>Explore token on Uniswap</p><a href="https://app.uniswap.org/explore/tokens/solana/BPu5sM2LhYMRRPWajyWesDME8bt6ARpGHWm6Spm6UP9z" target="_blank">Open →</a></div>
+<div class="card"><h3>Binance Web3</h3><p>Token details on Binance</p><a href="https://app.binance.com/uni-qr/web3-token-details?utm_medium=share&tokenCA=BPu5sM2LhYMRRPWajyWesDME8bt6ARpGHWm6Spm6UP9z&binanceChainId=CT_501&chain=sol" target="_blank">Open →</a></div>
+<div class="card"><h3>OpenSea</h3><p>View token on OpenSea</p><a href="https://opensea.io/token/solana/BPu5sM2LhYMRRPWajyWesDME8bt6ARpGHWm6Spm6UP9z" target="_blank">Open →</a></div>
+<div class="card"><h3>GeckoTerminal</h3><p>Live pool data</p><a href="https://www.geckoterminal.com/solana/pools/2onQGAoorxkMavNsmKXMcWLgyuK1A7VxAf6UeZ4sg6zW" target="_blank">Open →</a></div>
 </div>
 
 <div class="widget-box">
@@ -198,97 +187,72 @@ footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:13px;bor
 <section id="ecosystem">
 <div class="section-header">
 <h1>Ecosystem <span class="highlight">40+ Tokens</span></h1>
-<p>ECODUNE is part of a multi-token ecosystem. Tokens trade with each other.</p>
+<p>ECODUNE is part of a multi-token ecosystem.</p>
 </div>
-
 <div class="media-block">
 <img src="ecodune_ecosystem.png" alt="Ecosystem">
 <div class="text">
 <h3>Multi-Token Ecosystem</h3>
-<p>40+ tokens across 7 sectors: 123 Core, AviaBank, RWA Bank, VisaCrypto, Transport & Retail, Humo & BYT, Eco & RWA. Connected by shared liquidity and cross-swaps.</p>
+<p>40+ tokens across 7 sectors: 123 Core, AviaBank, RWA Bank, VisaCrypto, Transport & Retail, Humo & BYT, Eco & RWA.</p>
 </div>
 </div>
-
 <div class="grid">
-<div class="card">
-<h3>ECO Impact (€ECO)</h3>
-<p>First token of the ecosystem. RWA-backed ESG on Solana Token-2022.</p>
-<a href="https://solscan.io/token/74Zc9ntjagHLYscczhfk5eWfUjcye8vqBWXWaGpLSnFp" target="_blank">Solscan →</a>
-</div>
-<div class="card">
-<h3>ECODUNE (€ECOD)</h3>
-<p>Fintech RWA layer. Token-2022. Part of the ecosystem.</p>
-<span style="color:var(--green);font-weight:600">You are here</span>
-</div>
-<div class="card">
-<h3>Full Ecosystem</h3>
-<p>40+ tokens with buy links. All trade with each other.</p>
-<a href="ecosystem.html">View Ecosystem →</a>
-</div>
+<div class="card"><h3>ECO Impact (€ECO)</h3><p>First token of the ecosystem.</p><a href="https://solscan.io/token/74Zc9ntjagHLYscczhfk5eWfUjcye8vqBWXWaGpLSnFp" target="_blank">Solscan →</a></div>
+<div class="card"><h3>ECODUNE (€ECOD)</h3><p>Fintech RWA layer.</p><span style="color:var(--green);font-weight:600">You are here</span></div>
+<div class="card"><h3>Full Ecosystem</h3><p>40+ tokens with buy links.</p><a href="ecosystem.html">View Ecosystem →</a></div>
 </div>
 </section>
 
 <section id="fintech">
 <div class="section-header">
 <h1>Fintech <span class="highlight">Modules</span></h1>
-<p>100+ interactive modules. Each leads to a real service.</p>
+<p>100+ interactive modules.</p>
 </div>
-
 <div class="media-block">
 <img src="ecodune_fintech.png" alt="Fintech">
 <div class="text">
 <h3>Fintech Infrastructure</h3>
-<p>DEX, aggregators, RPC, wallets, RWA compliance, analytics, staking, bridges, governance, security — all in one layer.</p>
+<p>DEX, aggregators, RPC, wallets, RWA compliance, analytics, staking, bridges, governance, security.</p>
 </div>
 </div>
-
 <div class="fintech-grid" id="fintechGrid"></div>
 </section>
 
 <section id="rwa">
 <div class="section-header">
 <h1>RWA <span class="highlight">Vault</span></h1>
-<p>Real-World Assets backing. Ecological assets and fintech infrastructure.</p>
+<p>Real-World Assets backing.</p>
 </div>
-
 <div class="media-block">
 <img src="ecodune_dune.png" alt="RWA Dune">
 <div class="text">
 <h3>Ecological RWA</h3>
-<p>Tokenization of carbon credits, coastal restoration projects, and clean energy assets. Metadata Pointer records reserve data on-chain.</p>
+<p>Tokenization of carbon credits, coastal restoration, and clean energy assets.</p>
 </div>
-</div>
-
-<div class="grid">
-<div class="card"><h3>🏦 Physical Backing</h3><p>Responsibly mined gold & emerald reserves. Quarterly audit.</p><div class="stat">100%</div><div class="label">Asset Backed Target</div></div>
-<div class="card"><h3>📋 Compliance</h3><p>Token-2022 Permanent Delegate (optional). Transfer Hook ready.</p><div class="stat">Token-2022</div><div class="label">Standard</div></div>
-<div class="card"><h3>🌍 Carbon Offset</h3><p>Automated routing to verified registries (Verra/Gold Standard).</p><div class="stat">On-chain</div><div class="label">Audit Trail</div></div>
 </div>
 </section>
 
 <section id="trade">
 <div class="section-header">
 <h1>Trade <span class="highlight">€ECOD</span></h1>
-<p>All links are live. They lead to real platforms.</p>
+<p>All links are live.</p>
 </div>
-
 <div class="grid">
 <div class="card"><h3>Uniswap</h3><a href="https://app.uniswap.org/explore/tokens/solana/BPu5sM2LhYMRRPWajyWesDME8bt6ARpGHWm6Spm6UP9z" target="_blank" class="btn-primary" style="margin-top:10px">Trade →</a></div>
 <div class="card"><h3>Binance Web3</h3><a href="https://app.binance.com/uni-qr/web3-token-details?utm_medium=share&tokenCA=BPu5sM2LhYMRRPWajyWesDME8bt6ARpGHWm6Spm6UP9z&binanceChainId=CT_501&chain=sol" target="_blank" class="btn-primary" style="margin-top:10px">Trade →</a></div>
 <div class="card"><h3>GeckoTerminal</h3><a href="https://www.geckoterminal.com/solana/pools/2onQGAoorxkMavNsmKXMcWLgyuK1A7VxAf6UeZ4sg6zW" target="_blank" class="btn-primary" style="margin-top:10px">Chart →</a></div>
 <div class="card"><h3>Solscan</h3><a href="https://solscan.io/token/BPu5sM2LhYMRRPWajyWesDME8bt6ARpGHWm6Spm6UP9z" target="_blank" class="btn-primary" style="margin-top:10px">Explorer →</a></div>
 </div>
-
 <div class="address-box">
 <span class="label">Token Contract (Solana)</span>
 <span class="addr">BPu5sM2LhYMRRPWajyWesDME8bt6ARpGHWm6Spm6UP9z</span>
 <button class="copy-btn" onclick="copyText('BPu5sM2LhYMRRPWajyWesDME8bt6ARpGHWm6Spm6UP9z')">📋</button>
-<a href="https://solscan.io/token/BPu5sM2LhYMRRPWajyWesDME8bt6ARpGHWm6Spm6UP9z" target="_blank" class="link">Solscan →</a>
+<a href="https://solscan.io/token/BPu5sM2LhYMRRPWajyWesDME8bt6ARpGHWm6Spm6UP9z" target="_blank" style="color:var(--green);margin-left:10px;text-decoration:none">Solscan →</a>
 </div>
-
-<div style="text-align:center;margin-top:40px"><a href="#home" class="back-link">← Back to Home</a></div>
+<div style="text-align:center;margin-top:30px"><a href="#home" class="back-link">← Back to Home</a></div>
 </section>
 
+<!-- НИЖНЯЯ СТРОКА (ТОКЕНЫ) -->
 <div class="bottom-ticker">
 <div class="bottom-track" id="bottomTicker"></div>
 </div>
@@ -296,26 +260,27 @@ footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:13px;bor
 </main>
 
 <footer>
-<p>© 2026 ECODUNE. All rights reserved. Fintech RWA on Solana Token-2022.</p>
+<p>© 2026 ECODUNE. All rights reserved.</p>
 </footer>
 
 <script>
+// THEME
 const themeToggle = document.getElementById('themeToggle');
 const savedTheme = localStorage.getItem('ecodune_theme') || 'dark';
 document.documentElement.setAttribute('data-theme', savedTheme);
 themeToggle.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
 themeToggle.addEventListener('click', () => {
-  const current = document.documentElement.getAttribute('data-theme');
-  const next = current === 'dark' ? 'light' : 'dark';
+  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', next);
   localStorage.setItem('ecodune_theme', next);
   themeToggle.textContent = next === 'dark' ? '🌙' : '☀️';
 });
 
+// COPY
 function copyText(text){navigator.clipboard.writeText(text).then(()=>{alert('Copied: '+text)}).catch(()=>{prompt('Copy:',text)})}
 
-// --- ECOSYSTEM TOKENS WITH DATA (Price / Volume placeholders) ---
-const topItems = [
+// TOKENS DATA (с ценой и объемом)
+const tokensData = [
   {tk:'€ECOD', nm:'ECODUNE', pr:'$0.01', vl:'$12.4K'},
   {tk:'€Q', nm:'Quadrillion', pr:'$0.01', vl:'$8.1K'},
   {tk:'€T', nm:'Trillion', pr:'$0.01', vl:'$5.2K'},
@@ -334,68 +299,49 @@ const topItems = [
   {tk:'€C929', nm:'COMAC C929', pr:'$0.92', vl:'$4.3K'},
   {tk:'€E195', nm:'Embraer E195', pr:'$1.95', vl:'$3.9K'},
   {tk:'€ESCR', nm:'Escrow', pr:'$0.10', vl:'$1.1K'},
-  {tk:'€DLCT', nm:'Delivery', pr:'$0.10', vl:'$900'},
-  {tk:'€SBLCT', nm:'Sublease', pr:'$0.10', vl:'$700'},
-  {tk:'€LUMP', nm:'Lump Sum', pr:'$0.10', vl:'$600'},
-  {tk:'€FWD', nm:'Forward', pr:'$0.10', vl:'$1.3K'},
   {tk:'€AUDT', nm:'Audit', pr:'$0.05', vl:'$2.2K'},
   {tk:'€PROOF', nm:'Proof', pr:'$0.05', vl:'$1.9K'},
   {tk:'€CERT', nm:'Certificate', pr:'$0.05', vl:'$1.7K'},
   {tk:'€HUB', nm:'RWA Hub', pr:'$0.05', vl:'$3.4K'},
   {tk:'€SHIELD', nm:'Shield', pr:'$0.05', vl:'$2.8K'},
   {tk:'€USMT', nm:'USMT', pr:'$1.00', vl:'$5.5K'},
-  {tk:'€AJR', nm:'Adjustment', pr:'$0.10', vl:'$1.2K'},
-  {tk:'€DEPO', nm:'Deposit', pr:'$0.10', vl:'$4.1K'},
-  {tk:'€CREDIT', nm:'Credit', pr:'$0.10', vl:'$3.7K'},
   {tk:'€UP', nm:'UnionPay', pr:'$0.20', vl:'$6.3K'},
   {tk:'€AMEX', nm:'Amex', pr:'$0.20', vl:'$5.1K'},
   {tk:'€REV', nm:'Revolut', pr:'$0.20', vl:'$4.8K'},
-  {tk:'€GIRO', nm:'Girocard', pr:'$0.20', vl:'$2.6K'},
-  {tk:'€ERP', nm:'ERP', pr:'$0.20', vl:'$1.4K'},
   {tk:'€EURC', nm:'Euro Coin', pr:'$1.00', vl:'$22.1K'},
   {tk:'€GRAB', nm:'Grab', pr:'$0.15', vl:'$3.2K'},
-  {tk:'€DIDI', nm:'DiDi', pr:'$0.15', vl:'$2.9K'},
   {tk:'€UBER', nm:'Uber', pr:'$0.15', vl:'$4.4K'},
-  {tk:'€TIP', nm:'Tips', pr:'$0.01', vl:'$500'},
-  {tk:'€FDX', nm:'FedEx', pr:'$0.15', vl:'$1.6K'},
-  {tk:'€MB', nm:'MiyBank', pr:'$0.50', vl:'$3.8K'},
   {tk:'€NIKE', nm:'Nike', pr:'$0.25', vl:'$7.1K'},
-  {tk:'€PUMA', nm:'Puma', pr:'$0.25', vl:'$5.9K'},
   {tk:'€ZARA', nm:'Zara', pr:'$0.25', vl:'$6.4K'},
   {tk:'€GUCCI', nm:'Gucci', pr:'$0.25', vl:'$8.2K'},
-  {tk:'€COS', nm:'COS', pr:'$0.25', vl:'$4.7K'},
   {tk:'€HUMO', nm:'Humo', pr:'$0.10', vl:'$2.3K'},
   {tk:'€AUZ', nm:'Gold AUZ', pr:'$75.00', vl:'$12.8K'},
-  {tk:'€BYT', nm:'BYT', pr:'$0.05', vl:'$1.0K'},
   {tk:'€ECO', nm:'ECO Impact', pr:'$0.01', vl:'$15.6K'},
   {tk:'€GREEN', nm:'Green', pr:'$0.01', vl:'$4.2K'},
   {tk:'€OIL', nm:'Oil', pr:'$0.01', vl:'$9.9K'},
   {tk:'€WTR', nm:'Water', pr:'$0.01', vl:'$3.3K'},
   {tk:'€ENR', nm:'Energy', pr:'$0.01', vl:'$5.7K'},
-  {tk:'€WST', nm:'Waste', pr:'$0.01', vl:'$1.1K'},
-  {tk:'€AGR', nm:'Agriculture', pr:'$0.01', vl:'$2.7K'},
-  {tk:'€IND', nm:'Industry', pr:'$0.01', vl:'$3.6K'}
+  {tk:'€AGR', nm:'Agriculture', pr:'$0.01', vl:'$2.7K'}
 ];
 
-const topTrack = document.getElementById('topTicker');
-const topHTML = topItems.map(t => `
-  <div class="ticker-item">
-    <span class="tk">${t.tk}</span>
-    <span class="nm">${t.nm}</span>
-    <span class="pr">${t.pr}</span>
-    <span class="vl">Vol ${t.vl}</span>
-  </div>
-`).join('');
-topTrack.innerHTML = topHTML + topHTML;
+function buildTickerHTML(data) {
+  return data.map(t => `
+    <div class="ticker-item">
+      <span class="tk">${t.tk}</span>
+      <span class="nm">${t.nm}</span>
+      <span class="pr">${t.pr}</span>
+      <span class="vl">Vol ${t.vl}</span>
+    </div>
+  `).join('');
+}
 
-const bottomItems = [
-  'Jupiter', 'Raydium', 'Orca', 'Meteora', 'Drift', 'Kamino', 'Marginfi',
-  'Solend', 'Phantom', 'Solflare', 'Backpack', 'Wormhole', 'LayerZero',
-  'Realms', 'Rugcheck', 'Helius', 'QuickNode', 'Birdeye', 'Magic Eden',
-  'Tensor', 'Cross-Token Swap', 'Unified Liquidity'
-];
-document.getElementById('bottomTicker').innerHTML = bottomItems.concat(bottomItems).map(t => `<span><span class="tag">◆</span> ${t}</span>`).join('');
+// ВЕРХНЯЯ СТРОКА
+document.getElementById('topTicker').innerHTML = buildTickerHTML(tokensData) + buildTickerHTML(tokensData);
 
+// НИЖНЯЯ СТРОКА (те же токены, но в обратную сторону)
+document.getElementById('bottomTicker').innerHTML = buildTickerHTML(tokensData.slice().reverse()) + buildTickerHTML(tokensData.slice().reverse());
+
+// FINTECH GRID
 const fintechModules = [
 'Jupiter Swap','Raydium Pool','Orca Whirlpool','Meteora DLMM','Uniswap Bridge','Binance Web3 Swap','1inch Solana','OpenOcean','Phoenix DEX','Drift Trade',
 'Jupiter Price API','GeckoTerminal Chart','DEX Screener','CoinGecko Price','Birdeye Data','Solscan Explorer','SolanaFM','Helius RPC','QuickNode RPC','Alchemy Solana',
