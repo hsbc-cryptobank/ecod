@@ -6,12 +6,11 @@
 <title>ECODUNE (€ECOD) — Fintech RWA Ecosystem</title>
 <link rel="icon" href="ecodune_logo.png">
 <meta property="og:image" content="ecodune_banner.png">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 <style>
 :root{--bg:#040906;--text:#E0F0E6;--green:#2ECC40;--dark:#1B8A2A;--gold:#FFD700;--teal:#0F4C5C;--sand:#D4A373;--glass:rgba(10,25,15,0.6);--border:rgba(46,204,64,0.25);--header-bg:rgba(4,9,6,0.9);--muted:#8A94C8;--card-text:#C0C8F0}
 [data-theme="light"]{--bg:#F5F7F2;--text:#1A2A1E;--green:#1B8A2A;--dark:#2ECC40;--gold:#B8860B;--teal:#0F4C5C;--sand:#C49A6C;--glass:rgba(255,255,255,0.7);--border:rgba(27,138,42,0.25);--header-bg:rgba(245,247,242,0.9);--muted:#5A6A5E;--card-text:#2A3A2E}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding-top:120px;padding-bottom:60px;transition:background .4s,color .4s}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding-top:140px;padding-bottom:60px;transition:background .4s,color .4s}
 body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at 50% 50%,rgba(46,204,64,0.05) 0%,transparent 60%);z-index:-1;pointer-events:none}
 .container{max-width:1200px;margin:0 auto;padding:0 20px}
 header{position:fixed;top:0;left:0;width:100%;background:var(--header-bg);backdrop-filter:blur(12px);z-index:100;border-bottom:1px solid var(--border);padding:12px 0}
@@ -28,12 +27,17 @@ nav a.active{color:var(--green);border-bottom:2px solid var(--green)}
 .btn-primary:hover{transform:scale(1.02);box-shadow:0 0 20px rgba(46,204,64,0.4)}
 .theme-toggle{background:var(--glass);border:1px solid var(--border);color:var(--text);border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:16px;transition:.3s}
 .theme-toggle:hover{border-color:var(--green);transform:scale(1.1)}
-.ticker-bar{position:fixed;top:60px;left:0;width:100%;background:var(--glass);border-bottom:1px solid var(--border);z-index:99;overflow:hidden;height:32px;display:flex;align-items:center}
-.ticker-track{display:flex;gap:40px;white-space:nowrap;animation:tickerScroll 120s linear infinite;font-size:12px;color:var(--muted)}
-.ticker-track span{display:inline-flex;align-items:center;gap:6px}
-.ticker-track .up{color:var(--green)}
-.ticker-track .down{color:#FF5555}
+
+/* --- TOP TICKER (TOKENS WITH PRICE/VOLUME) --- */
+.ticker-bar{position:fixed;top:60px;left:0;width:100%;background:var(--glass);border-bottom:1px solid var(--border);z-index:99;overflow:hidden;height:44px;display:flex;align-items:center}
+.ticker-track{display:flex;gap:30px;white-space:nowrap;animation:tickerScroll 90s linear infinite;font-size:12px;color:var(--muted);padding-left:20px}
+.ticker-item{display:inline-flex;align-items:center;gap:8px;background:rgba(0,0,0,0.3);border:1px solid var(--border);padding:4px 10px;border-radius:20px}
+.ticker-item .tk{color:var(--gold);font-weight:700;font-size:13px}
+.ticker-item .nm{color:var(--text);font-size:11px}
+.ticker-item .pr{color:var(--green);font-weight:600;font-size:12px}
+.ticker-item .vl{color:var(--muted);font-size:10px}
 @keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
 .hero{position:relative;min-height:440px;display:flex;align-items:center;justify-content:center;text-align:center;border-radius:24px;overflow:hidden;margin:20px 0 40px;background:url('ecodune_hero.png') center/cover no-repeat;border:1px solid var(--border)}
 .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,9,6,0.4) 0%,rgba(4,9,6,0.85) 100%)}
 [data-theme="light"] .hero::before{background:linear-gradient(180deg,rgba(245,247,242,0.3) 0%,rgba(245,247,242,0.85) 100%)}
@@ -310,20 +314,78 @@ themeToggle.addEventListener('click', () => {
 
 function copyText(text){navigator.clipboard.writeText(text).then(()=>{alert('Copied: '+text)}).catch(()=>{prompt('Copy:',text)})}
 
+// --- ECOSYSTEM TOKENS WITH DATA (Price / Volume placeholders) ---
 const topItems = [
-  'ECODUNE €ECOD','€Quadrillion €Q','€Trillion €T','€Millions €M','$ONE','$TAXI','$777','¥365','¥FIVE','€20','€TWO','£THREE',
-  '€A220','€A350','€B787','€C929','€E195','€ESCR','€DLCT','€SBLCT','€LUMP','€FWD',
-  '€AUDT','€PROOF','€CERT','€HUB','€SHIELD','€USMT','€AJR','€DEPO','€CREDIT',
-  '€UP','€AMEX','€REV','€GIRO','€ERP','€EURC',
-  '€GRAB','€DIDI','€UBER','€TIP','€FDX','€MB','€NIKE','€PUMA','€ZARA','€GUCCI','€COS',
-  '€HUMO','€AUZ','€BYT',
-  '€ECO','€GREEN','€OIL','€WTR','€ENR','€WST','€AGR','€IND'
+  {tk:'€ECOD', nm:'ECODUNE', pr:'$0.01', vl:'$12.4K'},
+  {tk:'€Q', nm:'Quadrillion', pr:'$0.01', vl:'$8.1K'},
+  {tk:'€T', nm:'Trillion', pr:'$0.01', vl:'$5.2K'},
+  {tk:'€M', nm:'Millions', pr:'$0.01', vl:'$3.1K'},
+  {tk:'$ONE', nm:'One Dollar', pr:'$1.00', vl:'$45.2K'},
+  {tk:'$TAXI', nm:'Gold Taxi', pr:'$0.50', vl:'$2.4K'},
+  {tk:'$777', nm:'Ghina', pr:'$7.77', vl:'$1.2K'},
+  {tk:'¥365', nm:'Year Token', pr:'$3.65', vl:'$800'},
+  {tk:'¥FIVE', nm:'Lucky Five', pr:'$5.00', vl:'$1.5K'},
+  {tk:'€20', nm:'Euro 20', pr:'$20.00', vl:'$6.7K'},
+  {tk:'€TWO', nm:'Euro Two', pr:'$2.00', vl:'$2.1K'},
+  {tk:'£THREE', nm:'Pound Three', pr:'$3.00', vl:'$1.8K'},
+  {tk:'€A220', nm:'Airbus A220', pr:'$1.20', vl:'$9.5K'},
+  {tk:'€A350', nm:'Airbus A350', pr:'$1.35', vl:'$11.2K'},
+  {tk:'€B787', nm:'Boeing 787', pr:'$0.78', vl:'$7.8K'},
+  {tk:'€C929', nm:'COMAC C929', pr:'$0.92', vl:'$4.3K'},
+  {tk:'€E195', nm:'Embraer E195', pr:'$1.95', vl:'$3.9K'},
+  {tk:'€ESCR', nm:'Escrow', pr:'$0.10', vl:'$1.1K'},
+  {tk:'€DLCT', nm:'Delivery', pr:'$0.10', vl:'$900'},
+  {tk:'€SBLCT', nm:'Sublease', pr:'$0.10', vl:'$700'},
+  {tk:'€LUMP', nm:'Lump Sum', pr:'$0.10', vl:'$600'},
+  {tk:'€FWD', nm:'Forward', pr:'$0.10', vl:'$1.3K'},
+  {tk:'€AUDT', nm:'Audit', pr:'$0.05', vl:'$2.2K'},
+  {tk:'€PROOF', nm:'Proof', pr:'$0.05', vl:'$1.9K'},
+  {tk:'€CERT', nm:'Certificate', pr:'$0.05', vl:'$1.7K'},
+  {tk:'€HUB', nm:'RWA Hub', pr:'$0.05', vl:'$3.4K'},
+  {tk:'€SHIELD', nm:'Shield', pr:'$0.05', vl:'$2.8K'},
+  {tk:'€USMT', nm:'USMT', pr:'$1.00', vl:'$5.5K'},
+  {tk:'€AJR', nm:'Adjustment', pr:'$0.10', vl:'$1.2K'},
+  {tk:'€DEPO', nm:'Deposit', pr:'$0.10', vl:'$4.1K'},
+  {tk:'€CREDIT', nm:'Credit', pr:'$0.10', vl:'$3.7K'},
+  {tk:'€UP', nm:'UnionPay', pr:'$0.20', vl:'$6.3K'},
+  {tk:'€AMEX', nm:'Amex', pr:'$0.20', vl:'$5.1K'},
+  {tk:'€REV', nm:'Revolut', pr:'$0.20', vl:'$4.8K'},
+  {tk:'€GIRO', nm:'Girocard', pr:'$0.20', vl:'$2.6K'},
+  {tk:'€ERP', nm:'ERP', pr:'$0.20', vl:'$1.4K'},
+  {tk:'€EURC', nm:'Euro Coin', pr:'$1.00', vl:'$22.1K'},
+  {tk:'€GRAB', nm:'Grab', pr:'$0.15', vl:'$3.2K'},
+  {tk:'€DIDI', nm:'DiDi', pr:'$0.15', vl:'$2.9K'},
+  {tk:'€UBER', nm:'Uber', pr:'$0.15', vl:'$4.4K'},
+  {tk:'€TIP', nm:'Tips', pr:'$0.01', vl:'$500'},
+  {tk:'€FDX', nm:'FedEx', pr:'$0.15', vl:'$1.6K'},
+  {tk:'€MB', nm:'MiyBank', pr:'$0.50', vl:'$3.8K'},
+  {tk:'€NIKE', nm:'Nike', pr:'$0.25', vl:'$7.1K'},
+  {tk:'€PUMA', nm:'Puma', pr:'$0.25', vl:'$5.9K'},
+  {tk:'€ZARA', nm:'Zara', pr:'$0.25', vl:'$6.4K'},
+  {tk:'€GUCCI', nm:'Gucci', pr:'$0.25', vl:'$8.2K'},
+  {tk:'€COS', nm:'COS', pr:'$0.25', vl:'$4.7K'},
+  {tk:'€HUMO', nm:'Humo', pr:'$0.10', vl:'$2.3K'},
+  {tk:'€AUZ', nm:'Gold AUZ', pr:'$75.00', vl:'$12.8K'},
+  {tk:'€BYT', nm:'BYT', pr:'$0.05', vl:'$1.0K'},
+  {tk:'€ECO', nm:'ECO Impact', pr:'$0.01', vl:'$15.6K'},
+  {tk:'€GREEN', nm:'Green', pr:'$0.01', vl:'$4.2K'},
+  {tk:'€OIL', nm:'Oil', pr:'$0.01', vl:'$9.9K'},
+  {tk:'€WTR', nm:'Water', pr:'$0.01', vl:'$3.3K'},
+  {tk:'€ENR', nm:'Energy', pr:'$0.01', vl:'$5.7K'},
+  {tk:'€WST', nm:'Waste', pr:'$0.01', vl:'$1.1K'},
+  {tk:'€AGR', nm:'Agriculture', pr:'$0.01', vl:'$2.7K'},
+  {tk:'€IND', nm:'Industry', pr:'$0.01', vl:'$3.6K'}
 ];
+
 const topTrack = document.getElementById('topTicker');
-const topHTML = topItems.map((t,i) => {
-  const cls = i % 3 === 0 ? 'up' : i % 3 === 1 ? 'down' : '';
-  return `<span class="${cls}">● ${t}</span>`;
-}).join('');
+const topHTML = topItems.map(t => `
+  <div class="ticker-item">
+    <span class="tk">${t.tk}</span>
+    <span class="nm">${t.nm}</span>
+    <span class="pr">${t.pr}</span>
+    <span class="vl">Vol ${t.vl}</span>
+  </div>
+`).join('');
 topTrack.innerHTML = topHTML + topHTML;
 
 const bottomItems = [
