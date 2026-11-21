@@ -29,7 +29,7 @@ nav a.active{color:var(--green);border-bottom:2px solid var(--green)}
 .theme-toggle{background:var(--glass);border:1px solid var(--border);color:var(--text);border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:16px;transition:.3s}
 .theme-toggle:hover{border-color:var(--green);transform:scale(1.1)}
 .ticker-bar{position:fixed;top:60px;left:0;width:100%;background:var(--glass);border-bottom:1px solid var(--border);z-index:99;overflow:hidden;height:32px;display:flex;align-items:center}
-.ticker-track{display:flex;gap:40px;white-space:nowrap;animation:tickerScroll 60s linear infinite;font-size:12px;color:var(--muted)}
+.ticker-track{display:flex;gap:40px;white-space:nowrap;animation:tickerScroll 120s linear infinite;font-size:12px;color:var(--muted)}
 .ticker-track span{display:inline-flex;align-items:center;gap:6px}
 .ticker-track .up{color:var(--green)}
 .ticker-track .down{color:#FF5555}
@@ -147,7 +147,7 @@ footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:13px;bor
 <div class="hero-content">
 <div class="hero-badge">Solana Token-2022 · Fintech RWA</div>
 <h1>ECODUNE <span class="highlight">€ECOD</span></h1>
-<p>Fintech RWA token for tokenizing ecological real-world assets. Part of a 70+ token ecosystem. Integrated with real DeFi infrastructure.</p>
+<p>Fintech RWA token for tokenizing ecological real-world assets. Part of a 40+ token ecosystem. Integrated with real DeFi infrastructure.</p>
 <a href="https://app.uniswap.org/explore/tokens/solana/BPu5sM2LhYMRRPWajyWesDME8bt6ARpGHWm6Spm6UP9z" target="_blank" class="btn-primary">Trade on Uniswap →</a>
 </div>
 </div>
@@ -155,7 +155,7 @@ footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:13px;bor
 <div class="counter-box">
 <div class="counter-item"><div class="num counter-visitors">0</div><div class="lbl">Visitors (Live)</div></div>
 <div class="counter-item"><div class="num" id="counterPrice">$0.01</div><div class="lbl">Price (Live)</div></div>
-<div class="counter-item"><div class="num">70+</div><div class="lbl">Ecosystem Tokens</div></div>
+<div class="counter-item"><div class="num">40+</div><div class="lbl">Ecosystem Tokens</div></div>
 <div class="counter-item"><div class="num">8.89Q</div><div class="lbl">Total Supply</div></div>
 </div>
 </section>
@@ -193,7 +193,7 @@ footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:13px;bor
 
 <section id="ecosystem">
 <div class="section-header">
-<h1>Ecosystem <span class="highlight">70+ Tokens</span></h1>
+<h1>Ecosystem <span class="highlight">40+ Tokens</span></h1>
 <p>ECODUNE is part of a multi-token ecosystem. Tokens trade with each other.</p>
 </div>
 
@@ -201,7 +201,7 @@ footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:13px;bor
 <img src="ecodune_ecosystem.png" alt="Ecosystem">
 <div class="text">
 <h3>Multi-Token Ecosystem</h3>
-<p>70+ tokens connected by shared liquidity and cross-swaps. ECODUNE is the fintech-RWA layer of the ecosystem.</p>
+<p>40+ tokens across 7 sectors: 123 Core, AviaBank, RWA Bank, VisaCrypto, Transport & Retail, Humo & BYT, Eco & RWA. Connected by shared liquidity and cross-swaps.</p>
 </div>
 </div>
 
@@ -218,7 +218,7 @@ footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:13px;bor
 </div>
 <div class="card">
 <h3>Full Ecosystem</h3>
-<p>70+ tokens with cross-swaps. All trade with each other.</p>
+<p>40+ tokens with buy links. All trade with each other.</p>
 <a href="ecosystem.html">View Ecosystem →</a>
 </div>
 </div>
@@ -311,11 +311,13 @@ themeToggle.addEventListener('click', () => {
 function copyText(text){navigator.clipboard.writeText(text).then(()=>{alert('Copied: '+text)}).catch(()=>{prompt('Copy:',text)})}
 
 const topItems = [
-  'ECODUNE €ECOD', 'ECO Impact €ECO', 'ECOD €ECOD2',
-  'AUDT €AUDT', 'PROOF €PROOF', 'CERT €CERT', 'HUB €HUB', 'SHIELD €SHLD',
-  'A220 €A220', 'A350 €A350', 'C929 ¥C929', 'B787 $B787', 'E195 R$E195', 'IL96 ₽IL96',
-  'Oil €OIL', 'Green €GRN', 'Water €WTR', 'Industry €IND', 'Energy €ENR', 'Waste €WST', 'Agriculture €AGR',
-  '365 €365', 'Ghina €GHN', 'Five €FIVE', 'One €ONE', 'Two €TWO', 'Three €THREE'
+  'ECODUNE €ECOD','€Quadrillion €Q','€Trillion €T','€Millions €M','$ONE','$TAXI','$777','¥365','¥FIVE','€20','€TWO','£THREE',
+  '€A220','€A350','€B787','€C929','€E195','€ESCR','€DLCT','€SBLCT','€LUMP','€FWD',
+  '€AUDT','€PROOF','€CERT','€HUB','€SHIELD','€USMT','€AJR','€DEPO','€CREDIT',
+  '€UP','€AMEX','€REV','€GIRO','€ERP','€EURC',
+  '€GRAB','€DIDI','€UBER','€TIP','€FDX','€MB','€NIKE','€PUMA','€ZARA','€GUCCI','€COS',
+  '€HUMO','€AUZ','€BYT',
+  '€ECO','€GREEN','€OIL','€WTR','€ENR','€WST','€AGR','€IND'
 ];
 const topTrack = document.getElementById('topTicker');
 const topHTML = topItems.map((t,i) => {
