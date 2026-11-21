@@ -59,9 +59,9 @@ nav a.active{color:var(--green);border-bottom:2px solid var(--green)}
 [data-theme="light"] .hero p{color:var(--card-text)}
 .hero-badge{display:inline-block;background:rgba(46,204,64,0.15);border:1px solid var(--border);padding:6px 16px;border-radius:20px;font-size:13px;color:var(--green);font-weight:600;margin-bottom:16px}
 
-/* FLOATING OBJECTS */
+/* FLOATING FINANCIAL OBJECTS */
 .floaters{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
-.floater{position:absolute;font-size:28px;opacity:.25;animation:floatUp 12s ease-in-out infinite}
+.floater{position:absolute;font-size:28px;opacity:.22;animation:floatUp 12s ease-in-out infinite;filter:drop-shadow(0 0 8px rgba(255,215,0,0.3))}
 .floater:nth-child(1){left:8%;top:20%;animation-delay:0s}
 .floater:nth-child(2){left:20%;top:70%;animation-delay:2s;font-size:22px}
 .floater:nth-child(3){left:75%;top:15%;animation-delay:1s;font-size:32px}
@@ -172,14 +172,14 @@ footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:13px;bor
 <section id="home">
 <div class="hero">
 <div class="floaters">
-<span class="floater">🌿</span>
-<span class="floater">💧</span>
-<span class="floater">🏖️</span>
 <span class="floater">🪙</span>
-<span class="floater">🌱</span>
+<span class="floater">💰</span>
+<span class="floater">💵</span>
+<span class="floater">🏦</span>
 <span class="floater">💎</span>
-<span class="floater">🌍</span>
-<span class="floater">⚡</span>
+<span class="floater">🥇</span>
+<span class="floater">💶</span>
+<span class="floater">📈</span>
 </div>
 <div class="hero-content">
 <div class="hero-badge">Solana Token-2022 · Fintech RWA</div>
@@ -190,8 +190,7 @@ footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:13px;bor
 </div>
 
 <div class="counter-box">
-<div class="counter-item"><div class="num counter-visitors">0</div><div class="lbl">Visitors</div></div>
-<div class="counter-item"><div class="num counter-holders">17</div><div class="lbl">Holders</div></div>
+<div class="counter-item"><div class="num" id="counterVisitors">0</div><div class="lbl">Visitors (Live)</div></div>
 <div class="counter-item"><div class="num" id="counterPrice">$0.01</div><div class="lbl">Price (Live)</div></div>
 <div class="counter-item"><div class="num">70+</div><div class="lbl">Ecosystem Tokens</div></div>
 <div class="counter-item"><div class="num">8.89Q</div><div class="lbl">Total Supply</div></div>
@@ -421,7 +420,7 @@ html+=`<div class="fintech-item" onclick="window.open('${action}','_blank')"><sp
 grid.innerHTML=html;
 }
 
-// LIVE PRICE (holders handled by counter-ecodune.js)
+// LIVE PRICE
 async function fetchPrice(){
 try{
 const res=await fetch('https://api.geckoterminal.com/api/v2/networks/solana/pools/2onQGAoorxkMavNsmKXMcWLgyuK1A7VxAf6UeZ4sg6zW');
@@ -429,14 +428,41 @@ if(res.ok){const d=await res.json();const p=d?.data?.attributes?.base_token_pric
 }catch(e){}
 }
 
+// VISITORS COUNTER (built-in, runs immediately)
+(function(){
+  const KEY = 'ecod_visitors_v1';
+  const START_KEY = 'ecod_start_v1';
+  let start = parseInt(localStorage.getItem(START_KEY));
+  if(!start || isNaN(start)){
+    start = Date.now();
+    localStorage.setItem(START_KEY, String(start));
+  }
+  let base = parseInt(localStorage.getItem(KEY));
+  if(!base || isNaN(base)){
+    base = 0;
+    localStorage.setItem(KEY, '0');
+  }
+  // increment once per session
+  if(!sessionStorage.getItem('ecod_counted')){
+    base = base + 1;
+    localStorage.setItem(KEY, String(base));
+    sessionStorage.setItem('ecod_counted', '1');
+  }
+  function update(){
+    const elapsed = Math.floor((Date.now() - start) / 1000);
+    const live = base + Math.floor(elapsed / 360); // +10 per hour
+    const el = document.getElementById('counterVisitors');
+    if(el) el.textContent = live.toLocaleString();
+  }
+  update();
+  setInterval(update, 1000);
+})();
+
 document.addEventListener('DOMContentLoaded',()=>{
 renderFintechGrid();fetchPrice();
 setInterval(fetchPrice,60000);
 });
 </script>
-
-<!-- ECODUNE COUNTER (separate file) -->
-<script src="counter-ecodune.js"></script>
 
 </body>
 </html>
