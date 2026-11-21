@@ -23,7 +23,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(
 body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at 50% 50%,rgba(46,204,64,0.05) 0%,transparent 60%);z-index:-1;pointer-events:none}
 .container{max-width:1200px;margin:0 auto;padding:0 20px}
 
-/* HEADER */
 header{position:fixed;top:0;left:0;width:100%;background:var(--header-bg);backdrop-filter:blur(12px);z-index:100;border-bottom:1px solid var(--border);padding:12px 0}
 .header-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;max-width:1200px;margin:0 auto;padding:0 20px}
 .logo{display:flex;align-items:center;gap:8px}
@@ -39,7 +38,6 @@ nav a.active{color:var(--green);border-bottom:2px solid var(--green)}
 .theme-toggle{background:var(--glass);border:1px solid var(--border);color:var(--text);border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:16px;transition:.3s}
 .theme-toggle:hover{border-color:var(--green);transform:scale(1.1)}
 
-/* TOP TICKER */
 .ticker-bar{position:fixed;top:60px;left:0;width:100%;background:var(--glass);border-bottom:1px solid var(--border);z-index:99;overflow:hidden;height:32px;display:flex;align-items:center}
 .ticker-track{display:flex;gap:40px;white-space:nowrap;animation:tickerScroll 40s linear infinite;font-size:12px;color:var(--muted)}
 .ticker-track span{display:inline-flex;align-items:center;gap:6px}
@@ -47,7 +45,6 @@ nav a.active{color:var(--green);border-bottom:2px solid var(--green)}
 .ticker-track .down{color:#FF5555}
 @keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* HERO */
 .hero{position:relative;min-height:440px;display:flex;align-items:center;justify-content:center;text-align:center;border-radius:24px;overflow:hidden;margin:20px 0 40px;background:url('ecodune_hero.png') center/cover no-repeat;border:1px solid var(--border)}
 .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,9,6,0.4) 0%,rgba(4,9,6,0.85) 100%)}
 [data-theme="light"] .hero::before{background:linear-gradient(180deg,rgba(245,247,242,0.3) 0%,rgba(245,247,242,0.85) 100%)}
@@ -59,7 +56,6 @@ nav a.active{color:var(--green);border-bottom:2px solid var(--green)}
 [data-theme="light"] .hero p{color:var(--card-text)}
 .hero-badge{display:inline-block;background:rgba(46,204,64,0.15);border:1px solid var(--border);padding:6px 16px;border-radius:20px;font-size:13px;color:var(--green);font-weight:600;margin-bottom:16px}
 
-/* FLOATING FINANCIAL OBJECTS */
 .floaters{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
 .floater{position:absolute;font-size:28px;opacity:.22;animation:floatUp 12s ease-in-out infinite;filter:drop-shadow(0 0 8px rgba(255,215,0,0.3))}
 .floater:nth-child(1){left:8%;top:20%;animation-delay:0s}
@@ -72,14 +68,12 @@ nav a.active{color:var(--green);border-bottom:2px solid var(--green)}
 .floater:nth-child(8){left:12%;top:45%;animation-delay:1.5s;font-size:18px}
 @keyframes floatUp{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-30px) rotate(15deg)}}
 
-/* SECTIONS */
 section{padding:40px 0;position:relative}
 .section-header{text-align:center;margin-bottom:40px}
 .section-header h1{font-size:38px;font-weight:800;margin-bottom:12px;color:var(--text)}
 .section-header h1 .highlight{color:var(--green)}
 .section-header p{color:var(--muted);max-width:700px;margin:0 auto}
 
-/* GRID / CARDS */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-bottom:30px}
 .card{background:var(--glass);border:1px solid var(--border);border-radius:20px;padding:24px;transition:.3s;backdrop-filter:blur(15px)}
 .card:hover{border-color:var(--green);transform:translateY(-4px);box-shadow:0 10px 30px rgba(46,204,64,0.1)}
@@ -90,12 +84,10 @@ section{padding:40px 0;position:relative}
 .card a{color:var(--green);text-decoration:none;font-size:13px;font-weight:600}
 .card a:hover{text-decoration:underline}
 
-/* WIDGET */
 .widget-box{background:rgba(0,0,0,0.4);border:1px solid var(--border);border-radius:16px;padding:20px;margin:20px 0}
 [data-theme="light"] .widget-box{background:rgba(255,255,255,0.6)}
 .widget-box iframe{width:100%;border:none;border-radius:12px;display:block}
 
-/* ADDRESS */
 .address-box{background:rgba(0,0,0,0.4);border:1px solid var(--border);border-radius:16px;padding:20px;margin:16px 0;text-align:center;font-size:14px;color:var(--card-text);font-family:'Courier New',monospace}
 [data-theme="light"] .address-box{background:rgba(255,255,255,0.6)}
 .address-box .label{color:var(--green);font-weight:600;display:block;margin-bottom:8px;font-family:'Segoe UI',sans-serif}
@@ -105,28 +97,24 @@ section{padding:40px 0;position:relative}
 .address-box .link{color:var(--green);text-decoration:none;font-size:14px;margin-left:12px;font-family:'Segoe UI',sans-serif}
 .address-box .link:hover{text-decoration:underline}
 
-/* COUNTER */
 .counter-box{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin:20px 0;animation:pulseGlow 3s ease-in-out infinite}
 @keyframes pulseGlow{0%,100%{filter:drop-shadow(0 0 0 rgba(46,204,64,0))}50%{filter:drop-shadow(0 0 15px rgba(46,204,64,0.4))}}
 .counter-item{text-align:center;padding:16px 24px;background:var(--glass);border:1px solid var(--border);border-radius:16px;min-width:140px}
 .counter-item .num{font-size:32px;font-weight:800;color:var(--green)}
 .counter-item .lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
 
-/* MEDIA BLOCKS */
 .media-block{display:flex;align-items:center;gap:30px;background:var(--glass);border:1px solid var(--border);border-radius:24px;padding:30px;margin:20px 0;flex-wrap:wrap}
 .media-block img{width:180px;height:180px;object-fit:contain;border-radius:16px;flex-shrink:0}
 .media-block .text{flex:1;min-width:240px}
 .media-block h3{color:var(--text);margin-bottom:10px}
 .media-block p{color:var(--card-text);font-size:14px}
 
-/* FINTECH */
 .fintech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin:20px 0}
 .fintech-item{background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;font-size:13px;color:var(--card-text);transition:.3s;cursor:pointer}
 [data-theme="light"] .fintech-item{background:rgba(255,255,255,0.6)}
 .fintech-item:hover{border-color:var(--green);background:rgba(46,204,64,0.05);color:var(--text)}
 .fintech-item .icon{font-size:20px;display:block;margin-bottom:6px}
 
-/* BOTTOM TICKER */
 .bottom-ticker{position:relative;overflow:hidden;height:40px;display:flex;align-items:center;background:var(--glass);border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:40px 0 0;border-radius:12px}
 .bottom-track{display:flex;gap:30px;white-space:nowrap;animation:tickerScroll 50s linear infinite;font-size:13px;color:var(--muted);padding-left:20px}
 .bottom-track span{display:inline-flex;align-items:center;gap:6px}
@@ -161,14 +149,12 @@ footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:13px;bor
 </div>
 </header>
 
-<!-- TOP TICKER -->
 <div class="ticker-bar">
 <div class="ticker-track" id="topTicker"></div>
 </div>
 
 <main class="container">
 
-<!-- HERO -->
 <section id="home">
 <div class="hero">
 <div class="floaters">
@@ -190,14 +176,13 @@ footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:13px;bor
 </div>
 
 <div class="counter-box">
-<div class="counter-item"><div class="num" id="counterVisitors">0</div><div class="lbl">Visitors (Live)</div></div>
+<div class="counter-item"><div class="num counter-visitors">0</div><div class="lbl">Visitors (Live)</div></div>
 <div class="counter-item"><div class="num" id="counterPrice">$0.01</div><div class="lbl">Price (Live)</div></div>
 <div class="counter-item"><div class="num">70+</div><div class="lbl">Ecosystem Tokens</div></div>
 <div class="counter-item"><div class="num">8.89Q</div><div class="lbl">Total Supply</div></div>
 </div>
 </section>
 
-<!-- TOKEN -->
 <section id="token">
 <div class="section-header">
 <h1>Token <span class="highlight">Details</span></h1>
@@ -229,7 +214,6 @@ footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:13px;bor
 </div>
 </section>
 
-<!-- ECOSYSTEM -->
 <section id="ecosystem">
 <div class="section-header">
 <h1>Ecosystem <span class="highlight">70+ Tokens</span></h1>
@@ -263,7 +247,6 @@ footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:13px;bor
 </div>
 </section>
 
-<!-- FINTECH -->
 <section id="fintech">
 <div class="section-header">
 <h1>Fintech <span class="highlight">Modules</span></h1>
@@ -281,7 +264,6 @@ footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:13px;bor
 <div class="fintech-grid" id="fintechGrid"></div>
 </section>
 
-<!-- RWA -->
 <section id="rwa">
 <div class="section-header">
 <h1>RWA <span class="highlight">Vault</span></h1>
@@ -303,7 +285,6 @@ footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:13px;bor
 </div>
 </section>
 
-<!-- TRADE -->
 <section id="trade">
 <div class="section-header">
 <h1>Trade <span class="highlight">€ECOD</span></h1>
@@ -327,7 +308,6 @@ footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:13px;bor
 <div style="text-align:center;margin-top:40px"><a href="#home" class="back-link">← Back to Home</a></div>
 </section>
 
-<!-- BOTTOM TICKER -->
 <div class="bottom-ticker">
 <div class="bottom-track" id="bottomTicker"></div>
 </div>
@@ -339,7 +319,7 @@ footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:13px;bor
 </footer>
 
 <script>
-// THEME TOGGLE
+// THEME
 const themeToggle = document.getElementById('themeToggle');
 const savedTheme = localStorage.getItem('ecodune_theme') || 'dark';
 document.documentElement.setAttribute('data-theme', savedTheme);
@@ -362,8 +342,7 @@ const topItems = [
   'Uniswap Live', 'Binance Web3 Live', 'GeckoTerminal Live',
   'Total Supply: 8.89Q', 'Transfer Hook Ready', 'Metadata Pointer'
 ];
-const topTrack = document.getElementById('topTicker');
-topTrack.innerHTML = topItems.concat(topItems).map((t,i) => {
+document.getElementById('topTicker').innerHTML = topItems.concat(topItems).map((t,i) => {
   const cls = i % 4 === 0 ? 'up' : i % 4 === 2 ? 'down' : '';
   return `<span class="${cls}">● ${t}</span>`;
 }).join('');
@@ -375,8 +354,7 @@ const bottomItems = [
   'Realms', 'Rugcheck', 'Helius', 'QuickNode', 'Birdeye', 'Magic Eden',
   'Tensor', 'ECO Impact', 'ECODUNE', 'Cross-Token Swap', 'Unified Liquidity'
 ];
-const bottomTrack = document.getElementById('bottomTicker');
-bottomTrack.innerHTML = bottomItems.concat(bottomItems).map(t => `<span><span class="tag">◆</span> ${t}</span>`).join('');
+document.getElementById('bottomTicker').innerHTML = bottomItems.concat(bottomItems).map(t => `<span><span class="tag">◆</span> ${t}</span>`).join('');
 
 // FINTECH GRID
 const fintechModules = [
@@ -428,31 +406,57 @@ if(res.ok){const d=await res.json();const p=d?.data?.attributes?.base_token_pric
 }catch(e){}
 }
 
-// VISITORS COUNTER (built-in, runs immediately)
+// ===== 10-YEAR PERSISTENT VISITORS COUNTER =====
 (function(){
-  const KEY = 'ecod_visitors_v1';
-  const START_KEY = 'ecod_start_v1';
-  let start = parseInt(localStorage.getItem(START_KEY));
-  if(!start || isNaN(start)){
-    start = Date.now();
-    localStorage.setItem(START_KEY, String(start));
+  const START_ISO = '2026-11-21T00:00:00Z';
+  const START_MS = new Date(START_ISO).getTime();
+  const END_MS = START_MS + 10 * 365 * 24 * 60 * 60 * 1000;
+
+  const KEYS = { base:'ecod_base_v3', backup1:'ecod_base_bak1_v3', backup2:'ecod_base_bak2_v3', session:'ecod_session_v3' };
+  const SALT = 'ecodune_10y_counter_salt_2026';
+
+  function genHash(v){
+    let h = 0;
+    const s = String(v) + SALT;
+    for (let i = 0; i < s.length; i++) { h = ((h << 5) - h) + s.charCodeAt(i); h &= h; }
+    return Math.abs(h).toString(16).padStart(8, '0');
   }
-  let base = parseInt(localStorage.getItem(KEY));
-  if(!base || isNaN(base)){
-    base = 0;
-    localStorage.setItem(KEY, '0');
+  function readBase(){
+    const candidates = [];
+    [KEYS.base, KEYS.backup1, KEYS.backup2].forEach(k => {
+      try {
+        const raw = localStorage.getItem(k);
+        if (raw) {
+          const obj = JSON.parse(raw);
+          if (obj && obj.hash === genHash(obj.value) && typeof obj.value === 'number') candidates.push(obj.value);
+        }
+      } catch(e){}
+    });
+    return candidates.length ? Math.max(...candidates) : 0;
   }
-  // increment once per session
-  if(!sessionStorage.getItem('ecod_counted')){
+  function writeBase(v){
+    const payload = JSON.stringify({ value: v, hash: genHash(v) });
+    [KEYS.base, KEYS.backup1, KEYS.backup2].forEach(k => {
+      try { localStorage.setItem(k, payload); } catch(e){}
+    });
+  }
+
+  let base = readBase();
+  if (!sessionStorage.getItem(KEYS.session)) {
     base = base + 1;
-    localStorage.setItem(KEY, String(base));
-    sessionStorage.setItem('ecod_counted', '1');
+    writeBase(base);
+    sessionStorage.setItem(KEYS.session, '1');
   }
+
   function update(){
-    const elapsed = Math.floor((Date.now() - start) / 1000);
-    const live = base + Math.floor(elapsed / 360); // +10 per hour
-    const el = document.getElementById('counterVisitors');
-    if(el) el.textContent = live.toLocaleString();
+    const now = Date.now();
+    if (now >= END_MS) {
+      document.querySelectorAll('.counter-visitors').forEach(el => el.textContent = base.toLocaleString());
+      return;
+    }
+    const elapsedSec = Math.floor((now - START_MS) / 1000);
+    const live = base + Math.floor(elapsedSec / 360);
+    document.querySelectorAll('.counter-visitors').forEach(el => el.textContent = live.toLocaleString());
   }
   update();
   setInterval(update, 1000);
