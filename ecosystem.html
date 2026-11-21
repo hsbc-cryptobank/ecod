@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ECODUNE Ecosystem — 70+ Tokens</title>
+<title>ECODUNE Ecosystem — 40+ Tokens</title>
 <link rel="icon" href="ecodune_logo.png">
 <style>
 :root{--bg:#040906;--text:#E0F0E6;--green:#2ECC40;--dark:#1B8A2A;--gold:#FFD700;--glass:rgba(10,25,15,0.6);--border:rgba(46,204,64,0.25);--muted:#8A94C8;--card-text:#C0C8F0;--header-bg:rgba(4,9,6,0.9)}
@@ -30,31 +30,19 @@ nav a.active{color:var(--green);border-bottom:2px solid var(--green)}
 .controls{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:20px 0}
 .controls input,.controls select{padding:10px 16px;border-radius:12px;border:1px solid var(--border);background:var(--glass);color:var(--text);font-size:14px;min-width:200px}
 .controls input:focus,.controls select:focus{outline:none;border-color:var(--green)}
-.token-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin:30px 0}
-.token-card{background:var(--glass);border:1px solid var(--border);border-radius:16px;padding:20px;transition:.3s;position:relative}
-.token-card:hover{border-color:var(--green);transform:translateY(-3px);box-shadow:0 8px 25px rgba(46,204,64,0.15)}
-.token-card .head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.token-card .icon{font-size:32px}
-.token-card .name{font-weight:700;font-size:16px;color:var(--text)}
-.token-card .ticker{font-size:12px;color:var(--gold);font-weight:600}
-.token-card .desc{font-size:13px;color:var(--card-text);margin-bottom:12px;min-height:38px}
-.token-card .actions{display:flex;gap:8px;flex-wrap:wrap}
-.token-card .actions a,.token-card .actions button{flex:1;padding:6px 10px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--green);font-size:12px;font-weight:600;cursor:pointer;text-decoration:none;text-align:center;transition:.2s}
-.token-card .actions a:hover,.token-card .actions button:hover{background:rgba(46,204,64,0.1);border-color:var(--green)}
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:200;align-items:center;justify-content:center;padding:20px}
-.modal-overlay.active{display:flex}
-.modal{background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:30px;max-width:500px;width:100%;position:relative}
-.modal h2{color:var(--text);margin-bottom:20px;font-size:22px}
-.modal .close{position:absolute;top:15px;right:20px;background:none;border:none;color:var(--muted);font-size:24px;cursor:pointer}
-.modal .swap-row{display:flex;gap:10px;align-items:center;margin-bottom:16px}
-.modal .swap-row label{min-width:60px;font-size:13px;color:var(--muted)}
-.modal .swap-row select,.modal .swap-row input{flex:1;padding:10px;border-radius:10px;border:1px solid var(--border);background:var(--glass);color:var(--text);font-size:14px}
-.modal .swap-result{background:rgba(46,204,64,0.05);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center;margin-top:16px}
-.modal .swap-result .amount{font-size:24px;font-weight:700;color:var(--green)}
-.modal .swap-result .info{font-size:12px;color:var(--muted);margin-top:6px}
-.modal .note{font-size:12px;color:var(--muted);margin-top:12px;text-align:center}
+.sector-block{background:var(--glass);border:1px solid var(--border);border-radius:24px;padding:24px;margin-bottom:24px;backdrop-filter:blur(15px)}
+.sector-title{font-size:20px;color:var(--text);margin-bottom:16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border);padding-bottom:12px}
+.sector-title span{font-size:24px}
+.token-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.token-card{background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:14px;padding:16px;text-decoration:none;color:var(--card-text);transition:.3s;display:flex;flex-direction:column;gap:4px}
+[data-theme="light"] .token-card{background:rgba(255,255,255,0.6)}
+.token-card:hover{border-color:var(--green);transform:translateY(-3px);background:rgba(46,204,64,0.05);box-shadow:0 6px 20px rgba(46,204,64,0.15)}
+.token-card .ticker{font-size:18px;font-weight:700;color:var(--gold)}
+.token-card .name{font-size:13px;color:var(--text);font-weight:600}
+.token-card .role{font-size:11px;text-transform:uppercase;color:var(--muted);letter-spacing:.5px;margin-top:4px}
+.token-card .buy{margin-top:8px;font-size:12px;color:var(--green);font-weight:600}
 footer{text-align:center;padding:30px;color:var(--muted);font-size:13px;border-top:1px solid var(--border);margin-top:40px}
-@media(max-width:768px){.header-inner{flex-direction:column}nav{justify-content:center;gap:8px}nav a{font-size:11px}}
+@media(max-width:768px){.header-inner{flex-direction:column}nav{justify-content:center;gap:8px}nav a{font-size:11px}.token-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -78,208 +66,156 @@ footer{text-align:center;padding:30px;color:var(--muted);font-size:13px;border-t
 <main class="container">
 <div class="section-header">
 <h1>ECODUNE <span class="highlight">Ecosystem</span></h1>
-<p>70+ tokens trading with each other. Shared liquidity, cross-swaps, unified infrastructure. Click any token to swap.</p>
+<p>40+ tokens across 6 sectors. Every token is clickable and leads to its buy page. All tokens trade with each other.</p>
 </div>
 
 <div class="controls">
 <input type="text" id="searchInput" placeholder="Search token name or ticker...">
-<select id="categoryFilter">
-<option value="all">All Categories</option>
-<option value="core">Core Tokens</option>
-<option value="rwa">RWA Tokens</option>
-<option value="eco">Eco Tokens</option>
-<option value="infra">Infrastructure</option>
-<option value="aviation">Aviation</option>
-<option value="defi">DeFi</option>
-</select>
-<select id="sortSelect">
-<option value="default">Default</option>
-<option value="name">Name A-Z</option>
-<option value="ticker">Ticker A-Z</option>
+<select id="sectorFilter">
+<option value="all">All Sectors</option>
+<option value="core">123 Core</option>
+<option value="aviation">AviaBank</option>
+<option value="rwa">RWA Bank</option>
+<option value="visa">VisaCrypto</option>
+<option value="retail">Transport & Retail</option>
+<option value="humo">Humo & BYT</option>
+<option value="eco">Eco & RWA</option>
 </select>
 </div>
 
-<div class="token-grid" id="tokenGrid"></div>
-
-<div class="modal-overlay" id="swapModal">
-<div class="modal">
-<button class="close" id="modalClose">×</button>
-<h2 id="modalTitle">Swap Token</h2>
-<div class="swap-row"><label>From</label><select id="fromToken"></select></div>
-<div class="swap-row"><label>To</label><select id="toToken"></select></div>
-<div class="swap-row"><label>Amount</label><input type="number" id="swapAmount" value="100" min="0.01" step="0.01"></div>
-<div class="swap-result">
-<div class="amount" id="swapResult">--</div>
-<div class="info" id="swapInfo">Select tokens and amount</div>
-</div>
-<button class="btn-primary" style="width:100%;margin-top:16px" id="executeSwap">Execute Cross-Swap →</button>
-<p class="note">Cross-swap uses shared liquidity. Rate is simulated for demo. Real swaps via Jupiter.</p>
-</div>
-</div>
+<div id="sectorsContainer"></div>
 </main>
 
-<footer>© 2026 ECODUNE Ecosystem. 70+ tokens. All rights reserved.</footer>
+<footer>© 2026 ECODUNE Ecosystem. 40+ tokens. All rights reserved.</footer>
 
 <script>
-const tokens = [
-  {name:'ECODUNE', ticker:'€ECOD', cat:'core', icon:'🪙', desc:'Fintech RWA token on Solana Token-2022', contract:'BPu5sM2LhYMRRPWajyWesDME8bt6ARpGHWm6Spm6UP9z'},
-  {name:'ECO Impact', ticker:'€ECO', cat:'core', icon:'🌿', desc:'RWA-backed ESG token with Green Audit', contract:'74Zc9ntjagHLYscczhfk5eWfUjcye8vqBWXWaGpLSnFp'},
-  {name:'ECOD', ticker:'€ECOD2', cat:'core', icon:'💎', desc:'ECOD utility token', contract:''},
-  {name:'AUDT', ticker:'€AUDT', cat:'infra', icon:'🔍', desc:'RWA Bank audit token', contract:''},
-  {name:'PROOF', ticker:'€PROOF', cat:'infra', icon:'📜', desc:'RWA Bank proof token', contract:''},
-  {name:'CERT', ticker:'€CERT', cat:'infra', icon:'✅', desc:'RWA Bank certificate token', contract:''},
-  {name:'HUB', ticker:'€HUB', cat:'infra', icon:'🔗', desc:'RWA Bank hub token', contract:''},
-  {name:'SHIELD', ticker:'€SHLD', cat:'infra', icon:'🛡️', desc:'RWA Bank security token', contract:''},
-  {name:'A220', ticker:'€A220', cat:'aviation', icon:'✈️', desc:'New Mass Asset — Airbus A220', contract:'9e4d52thV9Tk5gSByJBMyzopDDdV1iNAmXYSskHEXtEY'},
-  {name:'A350', ticker:'€A350', cat:'aviation', icon:'✈️', desc:'Innovation Asset — Airbus A350', contract:'BZ97n4QCfbnMTBy4yEycdkDr4tsfSrYev5KDDwZ4qJrn'},
-  {name:'C929', ticker:'¥C929', cat:'aviation', icon:'🛩️', desc:'Horizon Asset — COMAC C929', contract:''},
-  {name:'B787', ticker:'$B787', cat:'aviation', icon:'🛫', desc:'Proven Asset — Boeing 787', contract:''},
-  {name:'E195', ticker:'R$E195', cat:'aviation', icon:'🛬', desc:'Efficiency Asset — Embraer E195', contract:''},
-  {name:'IL96', ticker:'₽IL96', cat:'aviation', icon:'✈️', desc:'Frozen Asset — Ilyushin IL-96', contract:''},
-  {name:'Oil', ticker:'€OIL', cat:'rwa', icon:'🛢️', desc:'Oil & gas RWA token', contract:''},
-  {name:'Green', ticker:'€GRN', cat:'eco', icon:'🌱', desc:'Green energy RWA token', contract:''},
-  {name:'Water', ticker:'€WTR', cat:'rwa', icon:'💧', desc:'Water resources token', contract:''},
-  {name:'Industry', ticker:'€IND', cat:'rwa', icon:'🏭', desc:'Industrial assets token', contract:''},
-  {name:'Energy', ticker:'€ENR', cat:'rwa', icon:'⚡', desc:'Energy assets token', contract:''},
-  {name:'Waste', ticker:'€WST', cat:'eco', icon:'♻️', desc:'Waste management token', contract:''},
-  {name:'Agriculture', ticker:'€AGR', cat:'rwa', icon:'🌾', desc:'Agricultural assets token', contract:''},
-  {name:'365', ticker:'€365', cat:'defi', icon:'📅', desc:'365-day yield token', contract:''},
-  {name:'Ghina', ticker:'€GHN', cat:'defi', icon:'💹', desc:'Ghina finance token', contract:''},
-  {name:'Five', ticker:'€FIVE', cat:'defi', icon:'5️⃣', desc:'Five token', contract:''},
-  {name:'One', ticker:'€ONE', cat:'defi', icon:'1️⃣', desc:'One token', contract:''},
-  {name:'Two', ticker:'€TWO', cat:'defi', icon:'2️⃣', desc:'Two token', contract:''},
-  {name:'Three', ticker:'€THREE', cat:'defi', icon:'3️⃣', desc:'Three token', contract:''},
-  {name:'Eco Token 01', ticker:'€ECO01', cat:'eco', icon:'🌿', desc:'Ecosystem token #01', contract:''},
-  {name:'Eco Token 02', ticker:'€ECO02', cat:'eco', icon:'🌿', desc:'Ecosystem token #02', contract:''},
-  {name:'Eco Token 03', ticker:'€ECO03', cat:'eco', icon:'🌿', desc:'Ecosystem token #03', contract:''},
-  {name:'Eco Token 04', ticker:'€ECO04', cat:'eco', icon:'🌿', desc:'Ecosystem token #04', contract:''},
-  {name:'Eco Token 05', ticker:'€ECO05', cat:'eco', icon:'🌿', desc:'Ecosystem token #05', contract:''},
-  {name:'Eco Token 06', ticker:'€ECO06', cat:'eco', icon:'🌿', desc:'Ecosystem token #06', contract:''},
-  {name:'Eco Token 07', ticker:'€ECO07', cat:'eco', icon:'🌿', desc:'Ecosystem token #07', contract:''},
-  {name:'Eco Token 08', ticker:'€ECO08', cat:'eco', icon:'🌿', desc:'Ecosystem token #08', contract:''},
-  {name:'Eco Token 09', ticker:'€ECO09', cat:'eco', icon:'🌿', desc:'Ecosystem token #09', contract:''},
-  {name:'Eco Token 10', ticker:'€ECO10', cat:'eco', icon:'🌿', desc:'Ecosystem token #10', contract:''},
-  {name:'Eco Token 11', ticker:'€ECO11', cat:'eco', icon:'🌿', desc:'Ecosystem token #11', contract:''},
-  {name:'Eco Token 12', ticker:'€ECO12', cat:'eco', icon:'🌿', desc:'Ecosystem token #12', contract:''},
-  {name:'Eco Token 13', ticker:'€ECO13', cat:'eco', icon:'🌿', desc:'Ecosystem token #13', contract:''},
-  {name:'Eco Token 14', ticker:'€ECO14', cat:'eco', icon:'🌿', desc:'Ecosystem token #14', contract:''},
-  {name:'Eco Token 15', ticker:'€ECO15', cat:'eco', icon:'🌿', desc:'Ecosystem token #15', contract:''},
-  {name:'Eco Token 16', ticker:'€ECO16', cat:'eco', icon:'🌿', desc:'Ecosystem token #16', contract:''},
-  {name:'Eco Token 17', ticker:'€ECO17', cat:'eco', icon:'🌿', desc:'Ecosystem token #17', contract:''},
-  {name:'Eco Token 18', ticker:'€ECO18', cat:'eco', icon:'🌿', desc:'Ecosystem token #18', contract:''},
-  {name:'Eco Token 19', ticker:'€ECO19', cat:'eco', icon:'🌿', desc:'Ecosystem token #19', contract:''},
-  {name:'Eco Token 20', ticker:'€ECO20', cat:'eco', icon:'🌿', desc:'Ecosystem token #20', contract:''},
-  {name:'Eco Token 21', ticker:'€ECO21', cat:'eco', icon:'🌿', desc:'Ecosystem token #21', contract:''},
-  {name:'Eco Token 22', ticker:'€ECO22', cat:'eco', icon:'🌿', desc:'Ecosystem token #22', contract:''},
-  {name:'Eco Token 23', ticker:'€ECO23', cat:'eco', icon:'🌿', desc:'Ecosystem token #23', contract:''},
-  {name:'Eco Token 24', ticker:'€ECO24', cat:'eco', icon:'🌿', desc:'Ecosystem token #24', contract:''},
-  {name:'Eco Token 25', ticker:'€ECO25', cat:'eco', icon:'🌿', desc:'Ecosystem token #25', contract:''},
-  {name:'Eco Token 26', ticker:'€ECO26', cat:'eco', icon:'🌿', desc:'Ecosystem token #26', contract:''},
-  {name:'Eco Token 27', ticker:'€ECO27', cat:'eco', icon:'🌿', desc:'Ecosystem token #27', contract:''},
-  {name:'Eco Token 28', ticker:'€ECO28', cat:'eco', icon:'🌿', desc:'Ecosystem token #28', contract:''},
-  {name:'Eco Token 29', ticker:'€ECO29', cat:'eco', icon:'🌿', desc:'Ecosystem token #29', contract:''},
-  {name:'Eco Token 30', ticker:'€ECO30', cat:'eco', icon:'🌿', desc:'Ecosystem token #30', contract:''},
-  {name:'Eco Token 31', ticker:'€ECO31', cat:'eco', icon:'🌿', desc:'Ecosystem token #31', contract:''},
-  {name:'Eco Token 32', ticker:'€ECO32', cat:'eco', icon:'🌿', desc:'Ecosystem token #32', contract:''},
-  {name:'Eco Token 33', ticker:'€ECO33', cat:'eco', icon:'🌿', desc:'Ecosystem token #33', contract:''},
-  {name:'Eco Token 34', ticker:'€ECO34', cat:'eco', icon:'🌿', desc:'Ecosystem token #34', contract:''},
-  {name:'Eco Token 35', ticker:'€ECO35', cat:'eco', icon:'🌿', desc:'Ecosystem token #35', contract:''},
-  {name:'Eco Token 36', ticker:'€ECO36', cat:'eco', icon:'🌿', desc:'Ecosystem token #36', contract:''},
-  {name:'Eco Token 37', ticker:'€ECO37', cat:'eco', icon:'🌿', desc:'Ecosystem token #37', contract:''},
-  {name:'Eco Token 38', ticker:'€ECO38', cat:'eco', icon:'🌿', desc:'Ecosystem token #38', contract:''},
-  {name:'Eco Token 39', ticker:'€ECO39', cat:'eco', icon:'🌿', desc:'Ecosystem token #39', contract:''},
-  {name:'Eco Token 40', ticker:'€ECO40', cat:'eco', icon:'🌿', desc:'Ecosystem token #40', contract:''},
-  {name:'Eco Token 41', ticker:'€ECO41', cat:'eco', icon:'🌿', desc:'Ecosystem token #41', contract:''},
-  {name:'Eco Token 42', ticker:'€ECO42', cat:'eco', icon:'🌿', desc:'Ecosystem token #42', contract:''},
-  {name:'Eco Token 43', ticker:'€ECO43', cat:'eco', icon:'🌿', desc:'Ecosystem token #43', contract:''},
-  {name:'Eco Token 44', ticker:'€ECO44', cat:'eco', icon:'🌿', desc:'Ecosystem token #44', contract:''},
-  {name:'Eco Token 45', ticker:'€ECO45', cat:'eco', icon:'🌿', desc:'Ecosystem token #45', contract:''},
-  {name:'Eco Token 46', ticker:'€ECO46', cat:'eco', icon:'🌿', desc:'Ecosystem token #46', contract:''},
-  {name:'Eco Token 47', ticker:'€ECO47', cat:'eco', icon:'🌿', desc:'Ecosystem token #47', contract:''},
-  {name:'Eco Token 48', ticker:'€ECO48', cat:'eco', icon:'🌿', desc:'Ecosystem token #48', contract:''},
-  {name:'Eco Token 49', ticker:'€ECO49', cat:'eco', icon:'🌿', desc:'Ecosystem token #49', contract:''},
-  {name:'Eco Token 50', ticker:'€ECO50', cat:'eco', icon:'🌿', desc:'Ecosystem token #50', contract:''}
+const sectors = [
+  {
+    id: 'core', icon: '🏦', title: '123 Core Ecosystem',
+    tokens: [
+      {ticker:'€ECOD', name:'ECODUNE', role:'Fintech RWA', url:'index.html'},
+      {ticker:'€Q', name:'€Quadrillion', role:'Flagship Core', url:'https://quadrillion.github.io/buy/'},
+      {ticker:'€T', name:'€Trillion', role:'Infinite Horizon', url:'https://eurocleartoken.github.io/trillion/'},
+      {ticker:'€M', name:'€Millions', role:'Financial Hub', url:'https://eurocleartoken.github.io/millions/'},
+      {ticker:'$ONE', name:'One Dollar', role:'Primary Hub', url:'https://123tokens.github.io/one/'},
+      {ticker:'$TAXI', name:'Gold Taxi', role:'Routing Hub', url:'https://goldtaxi.github.io/taxi/'},
+      {ticker:'$777', name:'Ghina', role:'Wealth', url:'https://123tokens.github.io/ghina/'},
+      {ticker:'¥365', name:'Year Token', role:'Utility', url:'https://123tokens.github.io/365/'},
+      {ticker:'¥FIVE', name:'Lucky Five', role:'Utility', url:'https://123tokens.github.io/five/'},
+      {ticker:'€20', name:'Euro 20', role:'Currency', url:'https://eurocleartoken.github.io/20/'},
+      {ticker:'€TWO', name:'Euro Two', role:'Currency', url:'https://123tokens.github.io/two/'},
+      {ticker:'£THREE', name:'Pound Three', role:'Currency', url:'https://123tokens.github.io/three/'}
+    ]
+  },
+  {
+    id: 'aviation', icon: '✈️', title: 'AviaBank Aviation Assets',
+    tokens: [
+      {ticker:'€A220', name:'Airbus A220', role:'Aviation RWA', url:'https://aviabank.github.io/a220/'},
+      {ticker:'€A350', name:'Airbus A350', role:'Aviation RWA', url:'https://aviabank.github.io/a350/'},
+      {ticker:'€B787', name:'Boeing 787', role:'Aviation RWA', url:'https://aviabank.github.io/b787/'},
+      {ticker:'€C929', name:'COMAC C929', role:'Aviation RWA', url:'https://aviabank.github.io/c929/'},
+      {ticker:'€E195', name:'Embraer E195', role:'Aviation RWA', url:'https://aviabank.github.io/e195/'},
+      {ticker:'€ESCR', name:'Escrow', role:'Aviation Service', url:'https://aviabank.github.io/escr/'},
+      {ticker:'€DLCT', name:'Delivery', role:'Aviation Service', url:'https://aviabank.github.io/dlct/'},
+      {ticker:'€SBLCT', name:'Sublease', role:'Aviation Service', url:'https://aviabank.github.io/sblct/'},
+      {ticker:'€LUMP', name:'Lump Sum', role:'Aviation Service', url:'https://aviabank.github.io/lump/'},
+      {ticker:'€FWD', name:'Forward', role:'Aviation Service', url:'https://aviabank.github.io/fwd/'}
+    ]
+  },
+  {
+    id: 'rwa', icon: '🏛️', title: 'RWA Bank & Euribank',
+    tokens: [
+      {ticker:'€AUDT', name:'Audit', role:'RWA Service', url:'https://rwabank.github.io/audt/'},
+      {ticker:'€PROOF', name:'Proof', role:'RWA Service', url:'https://rwabank.github.io/proof/'},
+      {ticker:'€CERT', name:'Certificate', role:'RWA Service', url:'https://rwabank.github.io/cert/'},
+      {ticker:'€HUB', name:'RWA Hub', role:'RWA Hub', url:'https://rwabank.github.io/hub/'},
+      {ticker:'€SHIELD', name:'Shield', role:'Security', url:'https://rwabank.github.io/shield/'},
+      {ticker:'€USMT', name:'USMT Token', role:'Banking RWA', url:'https://euribank.github.io/usmt/'},
+      {ticker:'€AJR', name:'Adjustment', role:'Banking', url:'https://metrobanktoken.github.io/ajr/'},
+      {ticker:'€DEPO', name:'Deposit', role:'Banking', url:'https://metrobanktoken.github.io/depo/'},
+      {ticker:'€CREDIT', name:'Credit', role:'Banking', url:'https://metrobanktoken.github.io/credit/'}
+    ]
+  },
+  {
+    id: 'visa', icon: '💳', title: 'VisaCrypto & Payment Systems',
+    tokens: [
+      {ticker:'€UP', name:'UnionPay', role:'Payment', url:'https://visacrypto.github.io/unionpay/'},
+      {ticker:'€AMEX', name:'American Express', role:'Payment', url:'https://visacrypto.github.io/amex/'},
+      {ticker:'€REV', name:'Revolut', role:'Payment', url:'https://visacrypto.github.io/revolut/'},
+      {ticker:'€GIRO', name:'Girocard', role:'Payment', url:'https://visacrypto.github.io/girocard/'},
+      {ticker:'€ERP', name:'ERP System', role:'Enterprise', url:'https://visacrypto.github.io/erp/'},
+      {ticker:'€EURC', name:'Euro Coin', role:'Stablecoin', url:'https://eurc-cash.github.io/eurc/'}
+    ]
+  },
+  {
+    id: 'retail', icon: '🚕', title: 'Transport & Retail Brands',
+    tokens: [
+      {ticker:'€GRAB', name:'Grab', role:'Transport', url:'https://goldtaxi.github.io/grab/'},
+      {ticker:'€DIDI', name:'DiDi', role:'Transport', url:'https://goldtaxi.github.io/didi/'},
+      {ticker:'€UBER', name:'Uber', role:'Transport', url:'https://goldtaxi.github.io/uber/'},
+      {ticker:'€TIP', name:'Tips', role:'Utility', url:'https://goldtaxi.github.io/tip/'},
+      {ticker:'€FDX', name:'FedEx', role:'Logistics', url:'https://goldtaxi.github.io/fdx/'},
+      {ticker:'€MB', name:'MiyBank', role:'Banking', url:'https://miybank.github.io/mb/'},
+      {ticker:'€NIKE', name:'Nike', role:'Retail RWA', url:'https://byt-assist.github.io/nike/'},
+      {ticker:'€PUMA', name:'Puma', role:'Retail RWA', url:'https://byt-assist.github.io/puma/'},
+      {ticker:'€ZARA', name:'Zara', role:'Retail RWA', url:'https://byt-assist.github.io/zara/'},
+      {ticker:'€GUCCI', name:'Gucci', role:'Retail RWA', url:'https://byt-assist.github.io/gucci/'},
+      {ticker:'€COS', name:'COS', role:'Retail RWA', url:'https://byt-assist.github.io/cos/'}
+    ]
+  },
+  {
+    id: 'humo', icon: '🪙', title: 'Humo & BYT Assets',
+    tokens: [
+      {ticker:'€HUMO', name:'Humo Token', role:'Stablecoin', url:'https://humotoken-uzb.github.io/humo/'},
+      {ticker:'€AUZ', name:'Gold AUZ', role:'Commodity', url:'https://humotoken-uzb.github.io/auz/'},
+      {ticker:'€BYT', name:'BYT Token', role:'Utility', url:'https://byt-assist.github.io/byt/'}
+    ]
+  },
+  {
+    id: 'eco', icon: '🌿', title: 'Eco & RWA Tokens',
+    tokens: [
+      {ticker:'€ECO', name:'ECO Impact', role:'Universal Receipt', url:'https://eurocleartoken.github.io/eco/'},
+      {ticker:'€GREEN', name:'Green', role:'Restoration', url:'https://ecologyoilgaz.github.io/green/'},
+      {ticker:'€OIL', name:'Oil', role:'Oil & Gas RWA', url:'https://ecologyoilgaz.github.io/oil/'},
+      {ticker:'€WTR', name:'Water', role:'Water Resources', url:'https://ecologyoilgaz.github.io/water/'},
+      {ticker:'€ENR', name:'Energy', role:'Energy Assets', url:'https://ecologyoilgaz.github.io/energy/'},
+      {ticker:'€WST', name:'Waste', role:'Waste Management', url:'https://ecologyoilgaz.github.io/waste/'},
+      {ticker:'€AGR', name:'Agriculture', role:'Agricultural', url:'https://ecologyoilgaz.github.io/agriculture/'},
+      {ticker:'€IND', name:'Industry', role:'Industrial', url:'https://ecologyoilgaz.github.io/industry/'}
+    ]
+  }
 ];
 
-const tokenGrid = document.getElementById('tokenGrid');
+const sectorsContainer = document.getElementById('sectorsContainer');
 const searchInput = document.getElementById('searchInput');
-const categoryFilter = document.getElementById('categoryFilter');
-const sortSelect = document.getElementById('sortSelect');
+const sectorFilter = document.getElementById('sectorFilter');
 
-function renderTokens(){
-  let filtered = tokens.filter(t => {
-    const matchSearch = t.name.toLowerCase().includes(searchInput.value.toLowerCase()) ||
-                        t.ticker.toLowerCase().includes(searchInput.value.toLowerCase());
-    const matchCat = categoryFilter.value === 'all' || t.cat === categoryFilter.value;
-    return matchSearch && matchCat;
+function render(){
+  const q = searchInput.value.toLowerCase();
+  const filter = sectorFilter.value;
+  let html = '';
+  sectors.forEach(s => {
+    if (filter !== 'all' && filter !== s.id) return;
+    const filtered = s.tokens.filter(t =>
+      t.name.toLowerCase().includes(q) || t.ticker.toLowerCase().includes(q)
+    );
+    if (!filtered.length) return;
+    html += `<div class="sector-block"><div class="sector-title"><span>${s.icon}</span>${s.title}</div><div class="token-grid">`;
+    filtered.forEach(t => {
+      html += `<a href="${t.url}" target="_blank" class="token-card">
+        <div class="ticker">${t.ticker}</div>
+        <div class="name">${t.name}</div>
+        <div class="role">${t.role}</div>
+        <div class="buy">Buy / View →</div>
+      </a>`;
+    });
+    html += `</div></div>`;
   });
-  if (sortSelect.value === 'name') filtered.sort((a,b) => a.name.localeCompare(b.name));
-  else if (sortSelect.value === 'ticker') filtered.sort((a,b) => a.ticker.localeCompare(b.ticker));
-  tokenGrid.innerHTML = filtered.map(t => `
-    <div class="token-card">
-      <div class="head">
-        <span class="icon">${t.icon}</span>
-        <div>
-          <div class="name">${t.name}</div>
-          <div class="ticker">${t.ticker}</div>
-        </div>
-      </div>
-      <div class="desc">${t.desc}</div>
-      <div class="actions">
-        <button onclick="openSwap('${t.name}')">Swap</button>
-        ${t.contract ? `<a href="https://solscan.io/token/${t.contract}" target="_blank">Solscan</a>` : `<a href="#" onclick="return false" style="opacity:.5">No CA</a>`}
-      </div>
-    </div>
-  `).join('');
+  sectorsContainer.innerHTML = html || '<p style="text-align:center;color:var(--muted);padding:40px">No tokens found.</p>';
 }
 
-searchInput.addEventListener('input', renderTokens);
-categoryFilter.addEventListener('change', renderTokens);
-sortSelect.addEventListener('change', renderTokens);
-
-const swapModal = document.getElementById('swapModal');
-const fromToken = document.getElementById('fromToken');
-const toToken = document.getElementById('toToken');
-const swapAmount = document.getElementById('swapAmount');
-const swapResult = document.getElementById('swapResult');
-const swapInfo = document.getElementById('swapInfo');
-const modalTitle = document.getElementById('modalTitle');
-
-function fillSelects(){
-  const options = tokens.map(t => `<option value="${t.ticker}">${t.name} (${t.ticker})</option>`).join('');
-  fromToken.innerHTML = options;
-  toToken.innerHTML = options;
-  fromToken.value = '€ECOD';
-  toToken.value = '€ECO';
-}
-
-function openSwap(tokenName){
-  const token = tokens.find(t => t.name === tokenName);
-  if (token) { fromToken.value = token.ticker; modalTitle.textContent = `Swap ${token.name}`; }
-  swapModal.classList.add('active');
-  calculateSwap();
-}
-
-document.getElementById('modalClose').addEventListener('click', () => swapModal.classList.remove('active'));
-swapModal.addEventListener('click', (e) => { if (e.target === swapModal) swapModal.classList.remove('active'); });
-
-function calculateSwap(){
-  const amount = parseFloat(swapAmount.value) || 0;
-  const from = fromToken.value;
-  const to = toToken.value;
-  const rate = 0.98;
-  const result = amount * rate;
-  swapResult.textContent = `${result.toFixed(2)} ${to}`;
-  swapInfo.textContent = `1 ${from} = ${rate} ${to} (cross-swap rate)`;
-}
-
-[fromToken, toToken, swapAmount].forEach(el => el.addEventListener('input', calculateSwap));
-
-document.getElementById('executeSwap').addEventListener('click', () => {
-  const from = fromToken.value;
-  const to = toToken.value;
-  alert(`Cross-swap initiated: ${swapAmount.value} ${from} → ${to}\n\nReal execution via Jupiter aggregator on Solana.`);
-});
+searchInput.addEventListener('input', render);
+sectorFilter.addEventListener('change', render);
 
 const themeToggle = document.getElementById('themeToggle');
 const savedTheme = localStorage.getItem('ecodune_theme') || 'dark';
@@ -292,9 +228,7 @@ themeToggle.addEventListener('click', () => {
   themeToggle.textContent = next === 'dark' ? '🌙' : '☀️';
 });
 
-fillSelects();
-renderTokens();
-calculateSwap();
+render();
 </script>
 </body>
 </html>
